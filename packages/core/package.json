@@ -1,0 +1,29 @@
+{
+  "name": "@game/core",
+  "version": "0.1.0",
+  "private": true,
+  "description": "《TA 的世界》游戏引擎：对局状态机、共情计分、评级（纯 TS，平台无关）",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@game/content": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.0"
+  }
+}
