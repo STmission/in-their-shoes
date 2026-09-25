@@ -1,0 +1,47 @@
+// 设计 token（与 docs/prototype.md 一致）
+// 设计稿基准 375px，Taro 按 designWidth:375 自动换算
+page {
+  background: #14121f;
+  color: #f2f0fa;
+  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-primary {
+  height: 52px;
+  line-height: 52px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #7c5cff, #b15cff);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+  border: none;
+  &::after {
+    border: none;
+  }
+  &.is-disabled {
+    opacity: 0.35;
+  }
+}
+
+.btn-ghost {
+  height: 52px;
+  line-height: 52px;
+  border-radius: 16px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #f2f0fa;
+  font-size: 16px;
+  text-align: center;
+  &::after {
+    border: none;
+  }
+}
