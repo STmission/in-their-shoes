@@ -1,0 +1,36 @@
+{
+  "name": "woman-boy-game",
+  "private": true,
+  "version": "0.1.0",
+  "description": "《TA 的世界 / In Their Shoes》— 男女生换位思考娱乐游戏，H5 + 微信小程序双端",
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "dev:h5": "pnpm -F game dev:h5",
+    "dev:weapp": "pnpm -F game dev:weapp",
+    "build:h5": "pnpm -F game build:h5",
+    "build:weapp": "pnpm -F game build:weapp",
+    "test": "pnpm -r test",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --fix --ext .ts,.tsx,.js,.jsx",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yaml,yml,css,scss}\"",
+    "typecheck": "pnpm -r build && pnpm -r typecheck",
+    "openspec": "openspec"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.4.0",
+    "typescript": "~5.6.0",
+    "vitest": "^2.1.0"
+  }
+}

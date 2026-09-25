@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# build output
+dist/
+build/
+.temp/
+.rn_temp/
+.output/
+
+# taro
+.taro-cache/
+apps/game/.swc/
+apps/game/npm-debug.log*
+
+# test/coverage
+coverage/
+
+# editor & os
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.log
+
+# env
+.env
+.env.local
+.env.*.local

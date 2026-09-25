@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.14.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build shared packages
+        run: pnpm -r --filter @game/content --filter @game/core build
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Unit tests
+        run: pnpm test
+
+      - name: Build H5
+        run: pnpm build:h5
+
+      - name: Verify H5 artifact
+        run: test -f apps/game/dist/index.html && echo "h5 dist OK"
+
+      - name: Build WeChat Mini Program
+        run: pnpm build:weapp
+
+      - name: Verify weapp artifact
+        run: test -f apps/game/dist/app.json && echo "weapp dist OK"
