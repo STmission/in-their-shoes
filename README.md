@@ -4,6 +4,8 @@
 
 **双端**：H5 网页版 + 微信小程序版，一套 Taro 代码编译两端。
 
+**在线试玩**：https://stmission.github.io/in-their-shoes/ （推 `main` 自动部署，见下方部署说明）
+
 ## 快速开始
 
 ```bash
@@ -44,3 +46,17 @@ openspec/        OpenSpec 规范与变更管理
 | `pnpm test`        | 单元测试（core/content） |
 | `pnpm lint`        | ESLint                   |
 | `pnpm openspec`    | OpenSpec CLI             |
+
+## 部署（GitHub Pages）
+
+push 到 `main` 后 `.github/workflows/deploy.yml` 自动构建 H5 并发布到
+`https://stmission.github.io/in-their-shoes/`。
+
+要点：项目页部署在子路径下，H5 构建必须带前缀：
+
+```bash
+H5_PUBLIC_PATH=/in-their-shoes/ pnpm build:h5
+```
+
+手动部署（不走 CI）也可把 `apps/game/dist` 推到 `gh-pages` 分支；Pages 源已设为
+GitHub Actions，`source` 字段里的 `gh-pages` 仅作历史记录。
