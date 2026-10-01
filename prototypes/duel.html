@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>方案 C · 极简对撞</title>
+<style>
+  body{margin:0;font-family:-apple-system,"PingFang SC",sans-serif;background:#0c0c0c;
+       display:flex;gap:48px;justify-content:center;align-items:flex-start;padding:48px;flex-wrap:wrap}
+  .phone{width:375px;height:812px;border-radius:44px;border:10px solid #1e1e1e;overflow:hidden;
+         position:relative;background:#fafafa;box-shadow:0 30px 80px rgba(0,0,0,.6);flex-shrink:0;color:#111}
+  .pad{position:relative;height:100%;box-sizing:border-box;display:flex;flex-direction:column;z-index:2}
+  .hero{padding:44px 24px 20px}
+  .kicker{font-size:11px;font-weight:800;letter-spacing:3px;color:#999;text-transform:uppercase}
+  .title{font-size:52px;font-weight:900;letter-spacing:-2px;line-height:1;margin-top:10px}
+  .title .volt{color:#d4ff3f;-webkit-text-stroke:1.5px #111}
+  .subline{font-size:13px;color:#666;margin-top:12px}
+  .vs{display:flex;flex:0 0 auto;margin:8px 24px 0;border-radius:18px;overflow:hidden;border:1.5px solid #111}
+  .side{flex:1;padding:20px 8px;text-align:center;background:#fff}
+  .side+.side{border-left:1.5px solid #111}
+  .side.on{background:#111;color:#fff}
+  .side .e{font-size:30px}
+  .side .l{display:block;font-size:14px;font-weight:800;margin-top:6px}
+  .side .h{display:block;font-size:10px;opacity:.55;margin-top:3px}
+  .seclabel{padding:18px 24px 10px;font-size:11px;font-weight:800;letter-spacing:2px;color:#999}
+  .list{display:flex;flex-direction:column}
+  .scene{display:flex;align-items:center;gap:14px;padding:14px 24px;border-top:1.5px solid #111;background:#fff}
+  .scene:last-child{border-bottom:1.5px solid #111}
+  .scene.hot{background:#d4ff3f}
+  .scene .e{font-size:19px;width:26px;text-align:center}
+  .scene .n{font-size:14.5px;font-weight:800}
+  .scene .d{font-size:10.5px;color:#888;margin-top:1px}
+  .scene .arr{margin-left:auto;font-weight:900;opacity:.35}
+  .cta{margin:auto 24px 26px;height:56px;border-radius:16px;background:#111;color:#d4ff3f;
+       font-size:16.5px;font-weight:900;letter-spacing:1px;display:flex;align-items:center;justify-content:center}
+  /* quiz — 深色反转 */
+  .phone.dark{background:#0f0f0f;color:#f5f5f5}
+  .qpad{padding:26px 20px;height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:16px}
+  .top{display:flex;align-items:center;gap:12px}
+  .cnt{font-size:13px;font-weight:900;color:#d4ff3f}
+  .bar{flex:1;height:5px;border-radius:3px;background:#2a2a2a;overflow:hidden}
+  .bar i{display:block;height:100%;width:37%;background:#d4ff3f}
+  .badge{align-self:flex-start;border:1.5px solid #d4ff3f;color:#d4ff3f;padding:4px 12px;
+         border-radius:99px;font-size:11.5px;font-weight:800;letter-spacing:1px}
+  .qcard{font-size:23px;font-weight:900;line-height:1.4;padding:8px 0 4px}
+  .opts{display:flex;flex-direction:column}
+  .opt{display:flex;gap:14px;align-items:center;padding:16px 4px;border-bottom:1.5px solid #2a2a2a;font-size:15px;font-weight:600}
+  .opt:first-child{border-top:1.5px solid #2a2a2a}
+  .opt .k{font-size:12px;font-weight:900;color:#777;width:20px}
+  .opt.ok{color:#d4ff3f}
+  .opt.ok .k{color:#d4ff3f}
+  .opt.ok::after{content:"✓";margin-left:auto;font-weight:900;color:#d4ff3f}
+  .verdict{font-size:15px;font-weight:900;color:#d4ff3f}
+  .exp{border-left:3px solid #d4ff3f;padding:4px 0 4px 14px;font-size:12.5px;line-height:1.7;color:#b5b5b5}
+  .cta.dark{margin:auto 0 0;background:#d4ff3f;color:#111}
+</style>
+</head>
+<body>
+<!-- 首页（浅色） -->
+<div class="phone">
+  <div class="pad">
+    <div class="hero">
+      <div class="kicker">Perspective Swap Quiz</div>
+      <div class="title">TA 的<span class="volt">世界</span></div>
+      <div class="subline">男生答女生题 · 女生答男生题，你有多懂对面？</div>
+    </div>
+    <div class="vs">
+      <div class="side on"><div class="e">🙋‍♂️</div><span class="l">我是男生</span><span class="h">答女生处境题</span></div>
+      <div class="side"><div class="e">🙋‍♀️</div><span class="l">我是女生</span><span class="h">答男生处境题</span></div>
+    </div>
+    <div class="seclabel">选择测试场景</div>
+    <div class="list">
+      <div class="scene hot"><span class="e">🎲</span><div><div class="n">随机全场景</div><div class="d">来啥答啥</div></div><span class="arr">→</span></div>
+      <div class="scene"><span class="e">💬</span><div><div class="n">聊天密语</div><div class="d">话里有话</div></div><span class="arr">→</span></div>
+      <div class="scene"><span class="e">💘</span><div><div class="n">约会现场</div><div class="d">实战演练</div></div><span class="arr">→</span></div>
+      <div class="scene"><span class="e">🌊</span><div><div class="n">情绪时刻</div><div class="d">读懂心 waves</div></div><span class="arr">→</span></div>
+      <div class="scene"><span class="e">🛍️</span><div><div class="n">消费观念</div><div class="d">花钱哲学</div></div><span class="arr">→</span></div>
+      <div class="scene"><span class="e">🏠</span><div><div class="n">生活日常</div><div class="d">细节见真章</div></div><span class="arr">→</span></div>
+      <div class="scene"><span class="e">🎉</span><div><div class="n">社交习惯</div><div class="d">圈子规则</div></div><span class="arr">→</span></div>
+    </div>
+    <div class="cta">开始换位挑战 →</div>
+  </div>
+</div>
+<!-- 对局页（深色反转） -->
+<div class="phone dark">
+  <div class="qpad">
+    <div class="top"><span class="cnt">3 / 8</span><div class="bar"><i></i></div><span style="font-size:13px">🔥2</span></div>
+    <span class="badge">💬 聊天密语</span>
+    <div class="qcard">深夜聊天时女生说「我没事，你先睡吧」，通常意味着……</div>
+    <div class="opts">
+      <div class="opt"><span class="k">A</span>真的没事</div>
+      <div class="opt ok"><span class="k">B</span>有事，但希望你主动追问</div>
+      <div class="opt"><span class="k">C</span>困了想结束聊天</div>
+      <div class="opt"><span class="k">D</span>在测试你会不会装睡</div>
+    </div>
+    <div class="verdict">✓ 答对 +120 · 连对 x2</div>
+    <div class="exp">常见的间接表达：有事但不想显得「太计较」，期待对方主动关心。当然，这只是一类常见现象，不代表所有人。</div>
+    <div class="cta dark">下一题 →</div>
+  </div>
+</div>
+</body>
+</html>

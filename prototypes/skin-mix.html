@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>皮肤方案 混搭 · 人物皮肤 + 宠物搭档</title>
+<style>
+:root{--bg:#FBF6F0;--ink:#3D2E28;--muted:#A88878;--a1:#FF7A4A;--a2:#FF9EC7;--spring:cubic-bezier(.34,1.4,.64,1)}
+*{margin:0;box-sizing:border-box;font-family:-apple-system,"PingFang SC",sans-serif}
+body{background:var(--bg);color:var(--ink);min-height:100vh;padding:28px 16px}
+h1{font-size:20px;font-weight:900;letter-spacing:-.4px;text-align:center}
+.sub{text-align:center;font-size:12.5px;color:var(--muted);margin:8px 0 22px}
+.phone{width:360px;background:var(--bg);border:10px solid #2a2228;border-radius:42px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(40,24,48,.35);margin:0 auto}
+.screen{position:relative;height:700px;overflow:hidden}
+.aurora{position:absolute;inset:0;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;opacity:.55;filter:blur(50px);animation:drift 16s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:180px;height:180px;left:-40px;top:8%;background:#FFD9A0}
+.aurora i:nth-child(2){width:200px;height:200px;right:-50px;top:32%;background:#FFB199;animation-delay:-4s}
+.aurora i:nth-child(3){width:160px;height:160px;left:16%;bottom:8%;background:#FF9EC7;animation-delay:-8s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(24px,-18px) scale(1.1)}100%{transform:translate(-14px,14px) scale(.95)}}
+.hd{padding:14px 18px;font-size:16px;font-weight:800;position:relative;z-index:1}
+.duo{position:relative;z-index:1;margin:10px 18px 0;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.65);border-radius:24px;padding:16px;box-shadow:0 8px 28px -16px rgba(40,24,48,.22)}
+.duo-lab{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--a1);text-align:center}
+.duo-row{display:flex;align-items:flex-end;justify-content:center;gap:24px;margin-top:8px}
+.duo-slot{text-align:center}
+.sprite{width:32px;height:32px;transform:scale(3.6);image-rendering:pixelated;background-repeat:no-repeat;margin:0 auto}
+.sprite-wrap{height:120px;display:flex;align-items:center;justify-content:center}
+.pet-img{width:84px;height:84px;image-rendering:pixelated;display:block}
+@keyframes anim-idle{to{background-position-x:-352px}}
+@keyframes anim-run{to{background-position-x:-384px}}
+@keyframes anim-jump{to{background-position-x:-192px}}
+@keyframes anim-hit{to{background-position-x:-224px}}
+.anim-idle{animation:anim-idle .62s steps(11) infinite}
+.anim-run{animation:anim-run .62s steps(12) infinite}
+.anim-jump{animation:anim-jump .5s steps(6) 1;animation-fill-mode:forwards}
+.anim-hit{animation:anim-hit .55s steps(7) 1;animation-fill-mode:forwards}
+.duo-name{font-size:13px;font-weight:800;margin-top:4px}
+.duo-tag{font-size:10px;color:var(--muted)}
+.combo{margin-top:10px;text-align:center;font-size:11px;color:var(--muted)}
+.picker{position:relative;z-index:1;margin:14px 18px 0}
+.picker-lab{font-size:11px;font-weight:800;letter-spacing:1px;color:var(--muted);margin-bottom:8px}
+.picks{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.picks.pets{grid-template-columns:repeat(6,1fr)}
+.pick{background:rgba(255,255,255,.65);border:2px solid rgba(255,255,255,.7);border-radius:14px;padding:6px 4px;text-align:center;cursor:pointer;transition:all .18s var(--spring)}
+.pick.on{border-color:var(--a1);box-shadow:0 0 0 1px var(--a1),0 6px 18px -8px var(--a1)}
+.pick .sprite{transform:scale(1.8)}
+.pick-n{font-size:9px;font-weight:700;margin-top:20px}
+.pick.pet-pick img{width:100%;image-rendering:pixelated}
+.pick.pet-pick .pick-n{margin-top:2px}
+.acts{display:flex;gap:8px;justify-content:center;margin:14px 18px 0;position:relative;z-index:1;flex-wrap:wrap}
+.act{font-size:12px;font-weight:800;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.85);border:1.5px solid rgba(255,180,140,.35);cursor:pointer;transition:transform .15s var(--spring)}
+.act:active{transform:scale(.93)}
+.act.primary{background:linear-gradient(90deg,var(--a1),var(--a2));color:#fff;border:none}
+.note{text-align:center;font-size:11px;color:var(--muted);margin-top:20px;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto}
+nav{text-align:center;margin-top:24px}
+nav a{display:inline-block;margin:0 6px;font-size:12.5px;font-weight:700;color:var(--a1);text-decoration:none;padding:6px 14px;border-radius:99px;border:1.5px solid rgba(255,122,74,.35)}
+</style>
+</head>
+<body>
+<h1>混搭方案 · 人物皮肤 × 宠物搭档</h1>
+<p class="sub">Pixel Frog 小人当「你的分身」+ ShadowPets 宠物当「陪测精灵」<br>选阵营=选分身，皮肤商店两套池子都可解锁</p>
+
+<div class="phone"><div class="screen">
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="hd">🧩 我的换装间</div>
+  <div class="duo">
+    <div class="duo-lab">当前组合</div>
+    <div class="duo-row">
+      <div class="duo-slot">
+        <div class="sprite-wrap"><div class="sprite anim-idle" id="hero"></div></div>
+        <div class="duo-name" id="heroName">Pink Man</div>
+        <div class="duo-tag">分身 · 男生阵营</div>
+      </div>
+      <div class="duo-slot">
+        <img class="pet-img" id="pet" src="assets/sp/Luna-idle.gif" alt="">
+        <div class="duo-name" id="petName">Luna</div>
+        <div class="duo-tag">陪测精灵</div>
+      </div>
+    </div>
+    <div class="combo">答对：小人跳跃 + 精灵弹跳 · 答错：小人受击 + 精灵安慰</div>
+  </div>
+  <div class="acts">
+    <div class="act primary" onclick="react(true)">答对！</div>
+    <div class="act" onclick="react(false)">答错！</div>
+    <div class="act" onclick="resetAll()">复位</div>
+  </div>
+  <div class="picker">
+    <div class="picker-lab">分身皮肤（Pixel Frog · CC0）</div>
+    <div class="picks" id="picks"></div>
+  </div>
+  <div class="picker">
+    <div class="picker-lab">陪测精灵（ShadowPets · CC-BY 4.0）</div>
+    <div class="picks pets" id="picks2"></div>
+  </div>
+</div></div>
+
+<p class="note">两套素材都拿到授权可商用；混搭让「皮肤」有收集感——分身可换皮，精灵可收集<br>全部纯帧动画，H5/小程序双端一致渲染，无 WebGL 依赖</p>
+<nav>
+  <a href="skin-a1.html">A1 拼豆小人</a><a href="skin-a2.html">A2 像素宠物</a><a href="skin-mix.html">混搭</a><a href="skin-live2d.html">B Live2D</a>
+</nav>
+
+<script>
+const CHARS=[{id:'Pink-Man',name:'Pink Man'},{id:'Virtual-Guy',name:'Virtual Guy'},{id:'Mask-Dude',name:'Mask Dude'},{id:'Ninja-Frog',name:'Ninja Frog'}];
+const PETS=['Luna','Frost','Nova','Comet','Felis','Draco'];
+const ANIMS={idle:['Idle','anim-idle'],run:['Run','anim-run'],jump:['Double-Jump','anim-jump'],hit:['Hit','anim-hit']};
+let curC='Pink-Man',curP='Luna';
+const hero=document.getElementById('hero'),pet=document.getElementById('pet');
+function paintHero(a){const[f,c]=ANIMS[a];hero.className='sprite';void hero.offsetWidth;
+ hero.style.backgroundImage=`url(assets/pa/${curC}-${f}.png)`;hero.classList.add(c)}
+function setPet(a){pet.src=`assets/sp/${curP}-${a}.gif?t=${Date.now()}`}
+window.react=ok=>{paintHero(ok?'jump':'hit');setPet(ok?'bounce':'greet');
+ setTimeout(resetAll,1400)};
+window.resetAll=()=>{paintHero('idle');setPet('idle')};
+const p1=document.getElementById('picks');
+CHARS.forEach(c=>{const d=document.createElement('div');d.className='pick'+(c.id===curC?' on':'');
+ d.innerHTML=`<div class="sprite anim-idle" style="background-image:url(assets/pa/${c.id}-Idle.png)"></div><div class="pick-n">${c.name}</div>`;
+ d.onclick=()=>{curC=c.id;document.getElementById('heroName').textContent=c.name;resetAll();
+  document.querySelectorAll('#picks .pick').forEach(x=>x.classList.toggle('on',x===d))};
+ p1.appendChild(d)});
+const p2=document.getElementById('picks2');
+PETS.forEach(p=>{const d=document.createElement('div');d.className='pick pet-pick'+(p===curP?' on':'');
+ d.innerHTML=`<img src="assets/sp/${p}-idle.gif"><div class="pick-n">${p}</div>`;
+ d.onclick=()=>{curP=p;document.getElementById('petName').textContent=p;resetAll();
+  document.querySelectorAll('#picks2 .pick').forEach(x=>x.classList.toggle('on',x===d))};
+ p2.appendChild(d)});
+resetAll();
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>皮肤方案 A2 · ShadowPets 像素宠物</title>
+<style>
+:root{--bg:#FBF6F0;--ink:#3D2E28;--muted:#A88878;--a1:#FF7A4A;--a2:#FF9EC7;--spring:cubic-bezier(.34,1.4,.64,1)}
+*{margin:0;box-sizing:border-box;font-family:-apple-system,"PingFang SC",sans-serif}
+body{background:var(--bg);color:var(--ink);min-height:100vh;padding:28px 16px}
+h1{font-size:20px;font-weight:900;letter-spacing:-.4px;text-align:center}
+.sub{text-align:center;font-size:12.5px;color:var(--muted);margin:8px 0 22px}
+.phones{display:flex;gap:28px;justify-content:center;flex-wrap:wrap}
+.phone{width:340px;background:var(--bg);border:10px solid #2a2228;border-radius:42px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(40,24,48,.35)}
+.screen{position:relative;height:640px;overflow:hidden}
+.aurora{position:absolute;inset:0;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;opacity:.55;filter:blur(50px);animation:drift 16s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:180px;height:180px;left:-40px;top:8%;background:#FFD9A0}
+.aurora i:nth-child(2){width:200px;height:200px;right:-50px;top:32%;background:#FFB199;animation-delay:-4s}
+.aurora i:nth-child(3){width:160px;height:160px;left:16%;bottom:8%;background:#FF9EC7;animation-delay:-8s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(24px,-18px) scale(1.1)}100%{transform:translate(-14px,14px) scale(.95)}}
+.hd{padding:14px 18px;font-size:16px;font-weight:800;position:relative;z-index:1}
+.stage{position:relative;z-index:1;margin:10px 18px 0;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.65);border-radius:24px;padding:20px;text-align:center;box-shadow:0 8px 28px -16px rgba(40,24,48,.22)}
+.stage-lab{font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--a1)}
+.pet{width:128px;height:128px;image-rendering:pixelated;margin:6px auto;display:block}
+.stage-name{font-size:18px;font-weight:900}
+.stage-desc{font-size:12px;color:var(--muted);margin-top:4px;min-height:18px}
+.acts{display:flex;gap:8px;justify-content:center;margin:12px 18px 0;position:relative;z-index:1;flex-wrap:wrap}
+.act{font-size:12px;font-weight:800;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.85);border:1.5px solid rgba(255,180,140,.35);cursor:pointer;transition:transform .15s var(--spring)}
+.act:active{transform:scale(.93)}
+.act.primary{background:linear-gradient(90deg,var(--a1),var(--a2));color:#fff;border:none}
+.picker{position:relative;z-index:1;margin:14px 18px 0}
+.picker-lab{font-size:11px;font-weight:800;letter-spacing:1px;color:var(--muted);margin-bottom:8px}
+.picks{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.pick{background:rgba(255,255,255,.65);border:2px solid rgba(255,255,255,.7);border-radius:14px;padding:4px;text-align:center;cursor:pointer;transition:all .18s var(--spring)}
+.pick.on{border-color:var(--a1);box-shadow:0 0 0 1px var(--a1),0 6px 18px -8px var(--a1)}
+.pick img{width:100%;image-rendering:pixelated;display:block}
+.pick-n{font-size:9px;font-weight:700;color:var(--ink)}
+.quiz-sim{position:relative;z-index:1;margin:14px 18px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.6);border-radius:18px;padding:14px}
+.quiz-q{font-size:13px;font-weight:800;line-height:1.5;margin-bottom:10px}
+.opt{font-size:12px;padding:9px 12px;border-radius:12px;background:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.7);margin-top:6px;cursor:pointer;transition:all .15s}
+.opt.right{border-color:#2FBF71;background:rgba(191,240,212,.6)}
+.opt.wrong{border-color:#FF5C5C;background:rgba(255,92,92,.1)}
+.note{text-align:center;font-size:11px;color:var(--muted);margin-top:20px;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto}
+nav{text-align:center;margin-top:24px}
+nav a{display:inline-block;margin:0 6px;font-size:12.5px;font-weight:700;color:var(--a1);text-decoration:none;padding:6px 14px;border-radius:99px;border:1.5px solid rgba(255,122,74,.35)}
+</style>
+</head>
+<body>
+<h1>皮肤方案 A2 · ShadowPets 像素宠物</h1>
+<p class="sub">CC-BY 4.0 需署名 · 萌系陪伴感 · idle/bounce/greet 三段动画<br>设定参考：答题时的「陪测小精灵」，答对它 bounce、见好友 greet</p>
+
+<div class="phones">
+<div class="phone"><div class="screen">
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="hd">🐾 皮肤试穿间</div>
+  <div class="stage">
+    <div class="stage-lab">当前搭档</div>
+    <img class="pet" id="hero" src="assets/sp/Luna-idle.gif" alt="">
+    <div class="stage-name" id="heroName">Luna</div>
+    <div class="stage-desc" id="verdict1">幽灵系小狐狸 · 陪你看穿对面视角</div>
+  </div>
+  <div class="acts">
+    <div class="act" onclick="setAnim('idle')">待机</div>
+    <div class="act primary" onclick="setAnim('bounce')">答对！弹跳</div>
+    <div class="act" onclick="setAnim('greet')">打招呼</div>
+  </div>
+  <div class="picker">
+    <div class="picker-lab">精灵列表（点击换装）</div>
+    <div class="picks" id="picks"></div>
+  </div>
+</div></div>
+
+<div class="phone"><div class="screen">
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="hd">🔥 暧昧心事 · 答题实况模拟</div>
+  <div class="stage">
+    <img class="pet" id="hero2" src="assets/sp/Frost-idle.gif" alt="">
+    <div class="stage-desc" id="verdict">点击下面选项，看小精灵实时反应</div>
+  </div>
+  <div class="quiz-sim">
+    <div class="quiz-q">深夜女生发来一句「睡不着」，潜台词多半是……</div>
+    <div class="opt" data-ok="0">真的失眠</div>
+    <div class="opt" data-ok="1">想和你聊聊，给你开场机会</div>
+    <div class="opt" data-ok="0">群发的</div>
+    <div class="opt" data-ok="0">无病呻吟</div>
+  </div>
+</div></div>
+</div>
+
+<p class="note">素材：ShadowPets（github throwingogo-hub/DigitalPets，CC-BY 4.0）<br>预览用 GIF；正式接入建议用 sheet.png + CSS steps()，小程序更稳、包体更小</p>
+<nav>
+  <a href="skin-a1.html">A1 拼豆小人</a><a href="skin-a2.html">A2 像素宠物</a><a href="skin-mix.html">混搭</a><a href="skin-live2d.html">B Live2D</a>
+</nav>
+
+<script>
+const PETS=['Luna','Frost','Nova','Comet','Felis','Draco'];
+const DESC={Luna:'幽灵系小狐狸',Frost:'霜系圆滚滚',Nova:'星轨小猫',Comet:'彗星尾巴',Felis:'喵系优等生',Draco:'迷你龙'};
+let cur='Luna';
+const hero=document.getElementById('hero'),hero2=document.getElementById('hero2');
+function src(p,a){return `assets/sp/${p}-${a}.gif`}
+function setAnim(a,el,pet){el.src=src(pet||cur,a)+'?t='+Date.now()}
+window.setAnim=a=>{setAnim(a,hero);if(a!=='idle')setTimeout(()=>setAnim('idle',hero),1400)};
+const picks=document.getElementById('picks');
+PETS.forEach(p=>{const d=document.createElement('div');d.className='pick'+(p===cur?' on':'');
+ d.innerHTML=`<img src="${src(p,'idle')}"><div class="pick-n">${p}</div>`;
+ d.onclick=()=>{cur=p;hero.src=src(p,'idle');document.getElementById('heroName').textContent=p;
+  document.getElementById('verdict1').textContent=DESC[p]+' · 陪你看穿对面视角';
+  document.querySelectorAll('.pick').forEach(x=>x.classList.toggle('on',x===d))};
+ picks.appendChild(d)});
+document.querySelectorAll('.opt').forEach(o=>o.onclick=()=>{
+ document.querySelectorAll('.opt').forEach(x=>x.className='opt');
+ const ok=o.dataset.ok==='1';o.classList.add(ok?'right':'wrong');
+ setAnim(ok?'bounce':'greet',hero2,'Frost');
+ document.getElementById('verdict').textContent=ok?'✓ 答对！精灵开心弹跳':'✗ 答错！精灵出来打圆场';
+ setTimeout(()=>setAnim('idle',hero2,'Frost'),1400)});
+</script>
+</body>
+</html>

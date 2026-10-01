@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>皮肤方案 B · Live2D 动漫角色</title>
+<style>
+:root{--bg:#FBF6F0;--ink:#3D2E28;--muted:#A88878;--a1:#FF7A4A;--a2:#FF9EC7;--spring:cubic-bezier(.34,1.4,.64,1)}
+*{margin:0;box-sizing:border-box;font-family:-apple-system,"PingFang SC",sans-serif}
+body{background:var(--bg);color:var(--ink);min-height:100vh;padding:28px 16px}
+h1{font-size:20px;font-weight:900;letter-spacing:-.4px;text-align:center}
+.sub{text-align:center;font-size:12.5px;color:var(--muted);margin:8px 0 22px;line-height:1.7}
+.phone{width:340px;background:var(--bg);border:10px solid #2a2228;border-radius:42px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(40,24,48,.35);margin:0 auto}
+.screen{position:relative;height:660px;overflow:hidden}
+.aurora{position:absolute;inset:0;pointer-events:none}
+.aurora i{position:absolute;border-radius:50%;opacity:.55;filter:blur(50px);animation:drift 16s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:180px;height:180px;left:-40px;top:8%;background:#FFD9A0}
+.aurora i:nth-child(2){width:200px;height:200px;right:-50px;top:32%;background:#FFB199;animation-delay:-4s}
+.aurora i:nth-child(3){width:160px;height:160px;left:16%;bottom:8%;background:#FF9EC7;animation-delay:-8s}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(24px,-18px) scale(1.1)}100%{transform:translate(-14px,14px) scale(.95)}}
+.hd{padding:14px 18px;font-size:16px;font-weight:800;position:relative;z-index:1}
+.l2d-stage{position:relative;z-index:1;margin:8px 18px 0;height:380px;border-radius:24px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.65);overflow:hidden;box-shadow:0 8px 28px -16px rgba(40,24,48,.22)}
+.l2d-stage canvas{position:absolute;inset:0;width:100%;height:100%}
+.l2d-tip{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-size:10.5px;color:var(--muted);pointer-events:none;z-index:2}
+.l2d-load{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-size:12px;color:var(--muted);z-index:2}
+.dots i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--a1);margin:0 4px;animation:bp 1s infinite ease-in-out}
+.dots i:nth-child(2){animation-delay:.15s;background:var(--a2)}
+.dots i:nth-child(3){animation-delay:.3s}
+@keyframes bp{0%,80%,100%{transform:scale(.5);opacity:.4}40%{transform:scale(1);opacity:1}}
+.model-bar{position:relative;z-index:1;margin:12px 18px 0;display:flex;gap:8px;flex-wrap:wrap}
+.mbtn{font-size:12px;font-weight:800;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.85);border:1.5px solid rgba(255,180,140,.35);cursor:pointer;transition:all .18s var(--spring)}
+.mbtn.on{background:linear-gradient(90deg,var(--a1),var(--a2));color:#fff;border-color:transparent}
+.warn{position:relative;z-index:1;margin:14px 18px 0;padding:12px 16px;border-radius:16px;background:rgba(255,217,160,.35);border:1.5px dashed rgba(255,122,74,.45);font-size:12px;line-height:1.7;color:#6a5044}
+.warn b{color:var(--a1)}
+.err{position:relative;z-index:1;margin:14px 18px 0;padding:12px 16px;border-radius:16px;background:rgba(255,92,92,.1);border:1.5px solid rgba(255,92,92,.4);font-size:12px;line-height:1.6;display:none}
+.note{text-align:center;font-size:11px;color:var(--muted);margin-top:20px;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto}
+nav{text-align:center;margin-top:24px}
+nav a{display:inline-block;margin:0 6px;font-size:12.5px;font-weight:700;color:var(--a1);text-decoration:none;padding:6px 14px;border-radius:99px;border:1.5px solid rgba(255,122,74,.35)}
+</style>
+</head>
+<body>
+<h1>皮肤方案 B · Live2D 动漫角色</h1>
+<p class="sub">Live2D 官方样本模型 · Free Material License（小规模商用免费）<br>会眨眼/呼吸/跟随手指互动 —— 移动鼠标或手指划过试试</p>
+
+<div class="phone"><div class="screen">
+  <div class="aurora"><i></i><i></i><i></i></div>
+  <div class="hd">✨ Live2D 试穿间</div>
+  <div class="l2d-stage" id="stage">
+    <div class="l2d-load" id="load"><div class="dots"><i></i><i></i><i></i></div>模型加载中（CDN 首次约几秒）…</div>
+    <div class="l2d-tip" id="tip">👆 移动/触摸，角色会看向你的手指 · 点击会触发动作</div>
+  </div>
+  <div class="model-bar" id="models"></div>
+  <div class="warn">
+    <b>⚠ 双端差异说明</b><br>
+    Live2D 依赖 WebGL + pixi.js（约 600KB+），<b>微信小程序基本不可用</b>。<br>
+    落地方式：H5 端用 Live2D 做「看板娘」级体验；小程序端同形象用<br>对应的静态立绘/GIF 帧动画降级。
+  </div>
+  <div class="err" id="err"></div>
+</div></div>
+
+<p class="note">可用模型：Haru / Hiyori / Mao / Rice / Wanko 等 Live2D 官方样本<br>许可要点：需在描述中标注「使用 Live2D Inc. 样本素材」，小规模项目免费商用</p>
+<nav>
+  <a href="skin-a1.html">A1 拼豆小人</a><a href="skin-a2.html">A2 像素宠物</a><a href="skin-mix.html">混搭</a><a href="skin-live2d.html">B Live2D</a>
+</nav>
+
+<script src="https://cubism.live2d.com/sdk-js/cubismcore/live2dcubismcore.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/index.min.js"></script>
+<script>
+const MODELS=[
+ {name:'Haru',urls:[
+  'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@test/assets/haru/haru_greeter_t03.model3.json',
+  'https://cdn.jsdelivr.net/gh/guansss/pixi-live2d-display@master/test/assets/haru/haru_greeter_t03.model3.json',
+  'https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@develop/Samples/Resources/Haru/haru_greeter_t03.model3.json']},
+ {name:'Hiyori',urls:[
+  'https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@develop/Samples/Resources/Hiyori/Hiyori.model3.json']},
+ {name:'Rice',urls:[
+  'https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@develop/Samples/Resources/Rice/Rice.model3.json']},
+ {name:'Mao',urls:[
+  'https://cdn.jsdelivr.net/gh/Live2D/CubismWebSamples@develop/Samples/Resources/Mao/Mao.model3.json']}];
+const stage=document.getElementById('stage');
+let app,model;
+async function boot(){
+ try{
+  app=new PIXI.Application({backgroundAlpha:0,resizeTo:stage,autoDensity:true,antialias:true});
+  stage.insertBefore(app.view,document.getElementById('load'));
+  await load(MODELS[0]);
+  document.getElementById('load').style.display='none';
+ }catch(e){fail(e)}
+}
+async function load(m){
+ for(const u of m.urls){
+  try{
+   const md=await PIXI.live2d.Live2DModel.from(u);
+   if(model)app.stage.removeChild(model);
+   model=md;
+   const s=Math.min(stage.clientWidth/model.width,stage.clientHeight/model.height)*0.9;
+   model.scale.set(s);model.anchor.set(.5,.5);
+   model.x=app.renderer.width/app.renderer.resolution/2;
+   model.y=app.renderer.height/app.renderer.resolution/2;
+   app.stage.addChild(model);
+   model.on('hit',areas=>{if(areas.length)model.motion('TapBody')});
+   document.querySelectorAll('.mbtn').forEach(b=>b.classList.toggle('on',b.dataset.n===m.name));
+   return;
+  }catch(e){console.warn('model url failed',u,e)}
+ }
+ throw new Error('all urls failed for '+m.name);
+}
+function fail(e){
+ document.getElementById('load').style.display='none';
+ const el=document.getElementById('err');el.style.display='block';
+ el.innerHTML='模型加载失败（CDN/网络问题）。本页仅演示方案 B 的效果上限——<br>正式接入时模型文件会打进项目或走自建 CDN，不受外网影响。<br>错误：'+e.message;
+}
+const bar=document.getElementById('models');
+MODELS.forEach((m,i)=>{const b=document.createElement('div');b.className='mbtn'+(i===0?' on':'');b.dataset.n=m.name;
+ b.textContent=m.name;b.onclick=()=>load(m).catch(fail);bar.appendChild(b)});
+boot();
+</script>
+</body>
+</html>

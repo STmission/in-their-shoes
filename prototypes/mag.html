@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>方案 B · 贴纸杂志</title>
+<style>
+  body{margin:0;font-family:-apple-system,"PingFang SC",sans-serif;background:#232323;
+       display:flex;gap:48px;justify-content:center;align-items:flex-start;padding:48px;flex-wrap:wrap}
+  .phone{width:375px;height:812px;border-radius:44px;border:10px solid #111;overflow:hidden;
+         position:relative;background:#fdf3e3;box-shadow:0 30px 80px rgba(0,0,0,.55);flex-shrink:0;color:#16130e}
+  .pad{position:relative;padding:26px 20px;height:100%;box-sizing:border-box;display:flex;flex-direction:column;gap:18px;z-index:2}
+  .tag{display:inline-block;transform:rotate(-3deg);background:#ffd233;border:2.5px solid #16130e;
+       padding:4px 12px;font-size:11px;font-weight:900;letter-spacing:2px;border-radius:8px}
+  .title{font-size:44px;font-weight:900;line-height:1.05;letter-spacing:-1px;margin-top:10px}
+  .title em{font-style:normal;color:#ff4d94}
+  .title .blue{color:#2f6bff}
+  .subline{font-size:14px;font-weight:600;color:#5c5546;margin-top:8px}
+  .vs{display:flex;gap:12px}
+  .side{flex:1;border:2.5px solid #16130e;border-radius:16px;padding:16px 10px;text-align:center;
+        background:#fff;box-shadow:4px 4px 0 #16130e;transition:.15s}
+  .side.on{background:#bcd3ff;transform:translate(2px,2px);box-shadow:2px 2px 0 #16130e}
+  .side .e{font-size:34px}
+  .side .l{display:block;font-size:15px;font-weight:900;margin-top:6px}
+  .side .h{display:block;font-size:10.5px;font-weight:600;color:#5c5546;margin-top:3px}
+  .sec{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:900}
+  .sec::before{content:"";width:14px;height:14px;background:#ff4d94;border:2.5px solid #16130e;border-radius:4px;display:inline-block}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .scene{border:2.5px solid #16130e;border-radius:14px;padding:11px 12px;background:#fff;
+         box-shadow:3px 3px 0 #16130e;display:flex;align-items:center;gap:8px}
+  .scene.hot{background:#ffd233;transform:rotate(-1deg)}
+  .scene .e{font-size:19px}
+  .scene .n{font-size:13px;font-weight:900}
+  .scene .d{font-size:10px;font-weight:600;color:#5c5546;margin-top:1px}
+  .cta{margin-top:auto;height:54px;border-radius:16px;border:2.5px solid #16130e;
+       background:#ff4d94;color:#fff;font-size:17px;font-weight:900;box-shadow:4px 4px 0 #16130e;
+       display:flex;align-items:center;justify-content:center}
+  /* quiz */
+  .top{display:flex;align-items:center;gap:10px}
+  .cnt{font-size:14px;font-weight:900}
+  .bar{flex:1;height:12px;border:2.5px solid #16130e;border-radius:8px;background:#fff;overflow:hidden}
+  .bar i{display:block;height:100%;width:37%;background:repeating-linear-gradient(45deg,#2f6bff,#2f6bff 8px,#5f8bff 8px,#5f8bff 16px)}
+  .badge{align-self:flex-start;transform:rotate(-2deg);background:#2f6bff;color:#fff;border:2.5px solid #16130e;
+         padding:5px 12px;font-size:12px;font-weight:900;border-radius:99px;box-shadow:2px 2px 0 #16130e}
+  .qcard{border:2.5px solid #16130e;border-radius:18px;background:#fff;padding:22px 18px;
+         box-shadow:4px 4px 0 #16130e;font-size:18px;font-weight:900;line-height:1.5}
+  .opts{display:flex;flex-direction:column;gap:10px}
+  .opt{display:flex;gap:11px;align-items:center;border:2.5px solid #16130e;border-radius:13px;
+       padding:13px 14px;background:#fff;box-shadow:3px 3px 0 #16130e;font-size:14px;font-weight:700}
+  .opt .k{width:26px;height:26px;border-radius:8px;border:2.5px solid #16130e;background:#fdf3e3;
+          display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:900;flex-shrink:0}
+  .opt.ok{background:#bff0d4}
+  .opt.ok .k{background:#2fbf71;color:#fff;border-color:#16130e}
+  .verdict{display:inline-block;transform:rotate(-1.5deg);background:#2fbf71;color:#fff;
+           border:2.5px solid #16130e;padding:6px 14px;border-radius:99px;font-size:14.5px;font-weight:900;
+           box-shadow:2px 2px 0 #16130e;align-self:flex-start}
+  .exp{border:2.5px dashed #16130e;border-radius:13px;padding:13px 15px;background:#fff7d6;
+       font-size:12.5px;font-weight:600;line-height:1.65;color:#4c4536}
+</style>
+</head>
+<body>
+<!-- 首页 -->
+<div class="phone">
+  <div class="pad">
+    <div><span class="tag">换位思考大挑战</span></div>
+    <div class="title">TA 的<br><em>世界</em><span class="blue">.</span></div>
+    <div class="subline">你有多懂对面的世界？</div>
+    <div class="vs">
+      <div class="side on"><div class="e">🙋‍♂️</div><span class="l">我是男生</span><span class="h">答女生处境题</span></div>
+      <div class="side"><div class="e">🙋‍♀️</div><span class="l">我是女生</span><span class="h">答男生处境题</span></div>
+    </div>
+    <div class="sec">选择测试场景</div>
+    <div class="grid">
+      <div class="scene hot"><span class="e">🎲</span><div><div class="n">随机全场景</div><div class="d">来啥答啥</div></div></div>
+      <div class="scene"><span class="e">💬</span><div><div class="n">聊天密语</div><div class="d">话里有话</div></div></div>
+      <div class="scene"><span class="e">💘</span><div><div class="n">约会现场</div><div class="d">实战演练</div></div></div>
+      <div class="scene"><span class="e">🌊</span><div><div class="n">情绪时刻</div><div class="d">读懂心 waves</div></div></div>
+      <div class="scene"><span class="e">🛍️</span><div><div class="n">消费观念</div><div class="d">花钱哲学</div></div></div>
+      <div class="scene"><span class="e">🏠</span><div><div class="n">生活日常</div><div class="d">细节见真章</div></div></div>
+      <div class="scene"><span class="e">🎉</span><div><div class="n">社交习惯</div><div class="d">圈子规则</div></div></div>
+    </div>
+    <div class="cta">开始换位挑战 →</div>
+  </div>
+</div>
+<!-- 对局页 -->
+<div class="phone">
+  <div class="pad">
+    <div class="top"><span class="cnt">3/8</span><div class="bar"><i></i></div><span>🔥2</span></div>
+    <span class="badge">💬 聊天密语</span>
+    <div class="qcard">深夜聊天时女生说「我没事，你先睡吧」，通常意味着……</div>
+    <div class="opts">
+      <div class="opt"><span class="k">A</span>真的没事</div>
+      <div class="opt ok"><span class="k">B</span>有事，但希望你主动追问</div>
+      <div class="opt"><span class="k">C</span>困了想结束聊天</div>
+      <div class="opt"><span class="k">D</span>在测试你会不会装睡</div>
+    </div>
+    <span class="verdict">✓ 答对！+120 🔥x2</span>
+    <div class="exp">💡 常见的间接表达：有事但不想显得「太计较」，期待对方主动关心。当然，这只是一类常见现象，不代表所有人。</div>
+    <div class="cta">下一题 →</div>
+  </div>
+</div>
+</body>
+</html>

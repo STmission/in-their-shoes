@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>《TA 的世界》UI 原型方案</title>
+<style>
+  body { margin:0; font-family:-apple-system,"PingFang SC",sans-serif; background:#0d0b14; color:#fff;
+         display:flex; flex-direction:column; align-items:center; padding:48px 20px; gap:32px; }
+  h1 { font-size:28px; margin:0; }
+  p.sub { color:rgba(255,255,255,.6); margin:8px 0 0; }
+  .grid { display:flex; gap:24px; flex-wrap:wrap; justify-content:center; }
+  a.card { width:280px; padding:32px 24px; border-radius:20px; text-decoration:none; color:#fff;
+           display:flex; flex-direction:column; gap:10px; transition:transform .15s ease; }
+  a.card:hover { transform:translateY(-4px); }
+  .a { background:linear-gradient(135deg,#2a1b4e,#4a1b3e); border:1px solid rgba(255,107,157,.4); }
+  .b { background:#f5ead9; color:#1a1a1a; border:1px solid #e0cfa8; }
+  .c { background:#111; border:1px solid #333; }
+  .name { font-size:20px; font-weight:800; }
+  .desc { font-size:13px; opacity:.75; line-height:1.6; }
+</style>
+</head>
+<body>
+  <h1>《TA 的世界》UI 原型 — 三选一</h1>
+  <p class="sub">每套含「首页（阵营+场景选择）」与「对局页」两屏高保真稿</p>
+  <div class="grid">
+    <a class="card a" href="./party.html">
+      <span class="name">方案 A · 霓虹派对</span>
+      <span class="desc">深紫底 + 蓝粉霓虹渐变 + 发光按钮。潮流夜场感，适合分享裂变，最"游戏"。</span>
+    </a>
+    <a class="card b" href="./mag.html">
+      <span class="name">方案 B · 贴纸杂志</span>
+      <span class="desc">奶油底 + 高饱和撞色 + 粗描边贴纸风。活泼社交感，女性用户友好。</span>
+    </a>
+    <a class="card c" href="./duel.html">
+      <span class="name">方案 C · 极简对撞</span>
+      <span class="desc">近黑白 + 荧光强调色，左右分屏对撞构图。克制高级，"对决"仪式感最强。</span>
+    </a>
+  </div>
+
+  <h1 style="margin-top:48px">皮肤素材方案 — 角色动态预览</h1>
+  <p class="sub">真实素材已下载/接入，可交互试穿（换装、答对答错反应演示）</p>
+  <div class="grid">
+    <a class="card s1" href="./skin-a1.html">
+      <span class="name">A1 · 拼豆小人</span>
+      <span class="desc">Pixel Adventure（Pixel Frog，CC0 免署名）。4 个像素小人，idle/跳跃/受击全套帧动画，双端一致。</span>
+    </a>
+    <a class="card s2" href="./skin-a2.html">
+      <span class="name">A2 · 像素宠物</span>
+      <span class="desc">ShadowPets（CC-BY 4.0）。6 只萌系像素小精灵，idle/bounce/greet 动画，做「陪测精灵」搭档。</span>
+    </a>
+    <a class="card s3" href="./skin-mix.html">
+      <span class="name">混搭 · 分身+精灵</span>
+      <span class="desc">小人当分身、宠物当搭档，皮肤商店两套池子。收集感最强。</span>
+    </a>
+    <a class="card s4" href="./skin-live2d.html">
+      <span class="name">B · Live2D 动漫</span>
+      <span class="desc">Live2D 官方样本（Haru/Hiyori…），会眨眼跟随互动。仅 H5 可用，小程序需降级。</span>
+    </a>
+  </div>
+  <style>
+    .s1 { background:linear-gradient(135deg,#FFD9A0,#FF9EC7); color:#3D2E28; }
+    .s2 { background:linear-gradient(135deg,#3a3048,#5e2a40); border:1px solid rgba(255,158,199,.4); }
+    .s3 { background:linear-gradient(135deg,#B2E4D5,#9ECFFF); color:#24333d; }
+    .s4 { background:linear-gradient(135deg,#2a1620,#9c4a44); border:1px solid rgba(255,217,160,.4); }
+  </style>
+</body>
+</html>
