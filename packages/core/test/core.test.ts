@@ -4,33 +4,56 @@ import { GameSession, maxScore, rankFor, streakBonus, targetFor } from "../src/i
 
 const bank2: QuestionBank = {
   version: "0.0.1",
-  questions: Array.from({ length: 8 }, (_, i) => ({
-    id: `f-${i}`,
-    targetPerspective: "for-female" as const,
-    scenario: `场景${i}`,
-    options: ["甲", "乙", "丙", "丁"],
-    answerIndex: 0,
-    explanation: "解析",
-  })),
+  categories: [
+    { id: "chat", name: "聊天密语", emoji: "💬", description: "d" },
+    { id: "date", name: "约会现场", emoji: "💘", description: "d" },
+  ],
+  questions: [
+    ...Array.from({ length: 8 }, (_, i) => ({
+      id: `f-chat-${i}`,
+      targetPerspective: "for-female" as const,
+      category: "chat" as const,
+      scenario: `场景${i}`,
+      options: ["甲", "乙", "丙", "丁"],
+      answerIndex: 0,
+      explanation: "解析",
+    })),
+    ...Array.from({ length: 4 }, (_, i) => ({
+      id: `f-date-${i}`,
+      targetPerspective: "for-female" as const,
+      category: "date" as const,
+      scenario: `约会${i}`,
+      options: ["甲", "乙", "丙", "丁"],
+      answerIndex: 0,
+      explanation: "解析",
+    })),
+  ],
 };
 
 function startMale() {
-  return GameSession.start("male", 8, bank2, [], () => 0.5);
+  return GameSession.start({ side: "male", count: 8, bank: bank2, rng: () => 0.5 });
 }
 
 // spec: game-session / 阵营选择与开局
 describe("阵营选择与开局", () => {
   it("男生阵营分发 for-female 题", () => {
     expect(targetFor("male")).toBe("for-female");
-    const s = GameSession.start("male", 8, bank);
+    const s = GameSession.start({ side: "male", bank });
     expect(s.phase).toBe("answering");
     expect(s.questions.every((q) => q.targetPerspective === "for-female")).toBe(true);
   });
 
   it("女生阵营分发 for-male 题", () => {
     expect(targetFor("female")).toBe("for-male");
-    const s = GameSession.start("female", 8, bank);
+    const s = GameSession.start({ side: "female", bank });
     expect(s.questions.every((q) => q.targetPerspective === "for-male")).toBe(true);
+  });
+
+  it("场景专场开局：全部题目同场景", () => {
+    const s = GameSession.start({ side: "male", bank: bank2, category: "date" });
+    expect(s.questions.every((q) => q.category === "date")).toBe(true);
+    expect(s.category).toBe("date");
+    expect(s.sceneOf(bank2)?.name).toBe("约会现场");
   });
 });
 
@@ -119,8 +142,8 @@ describe("结算与评级", () => {
   });
 
   it("再来一局排除上局题目（题库余量允许时）", () => {
-    const s1 = GameSession.start("male", 4, bank);
-    const s2 = GameSession.start("male", 4, bank, s1.questionIds);
+    const s1 = GameSession.start({ side: "male", count: 4, bank });
+    const s2 = GameSession.start({ side: "male", count: 4, bank, excludeIds: s1.questionIds });
     const prev = new Set(s1.questionIds);
     expect(s2.questions).toHaveLength(4);
     expect(s2.questions.every((q) => !prev.has(q.id))).toBe(true);

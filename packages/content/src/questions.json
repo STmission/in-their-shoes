@@ -1,18 +1,34 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "categories": [
+    { "id": "chat", "name": "聊天密语", "emoji": "💬", "description": "话里有话的信号解读" },
+    { "id": "date", "name": "约会现场", "emoji": "💘", "description": "见面实战演练" },
+    { "id": "emotion", "name": "情绪时刻", "emoji": "🌊", "description": "读懂情绪波浪" },
+    { "id": "money", "name": "消费观念", "emoji": "🛍️", "description": "花钱哲学对对碰" },
+    { "id": "life", "name": "生活日常", "emoji": "🏠", "description": "细节见真章" },
+    { "id": "social", "name": "社交习惯", "emoji": "🎉", "description": "TA 圈子的潜规则" },
+    { "id": "private", "name": "暧昧心事", "emoji": "🔥", "description": "心动信号解码" },
+    { "id": "screen", "name": "荧幕情感", "emoji": "🎬", "description": "名场面里的你我" },
+    { "id": "future", "name": "未来蓝图", "emoji": "🏡", "description": "房车孩子和生活" },
+    { "id": "score", "name": "计分法则", "emoji": "🧮", "description": "火星金星的不同计分簿" },
+    { "id": "needs", "name": "情感需求", "emoji": "💎", "description": "被需要 vs 被珍视" },
+    { "id": "fight", "name": "吵架模式", "emoji": "⚔️", "description": "洞穴沉默 vs 追根究底" }
+  ],
   "questions": [
     {
       "id": "f-001",
       "targetPerspective": "for-female",
+      "category": "chat",
       "scenario": "深夜聊天时女生说「我没事，你先睡吧」，通常意味着……",
       "options": ["真的没事", "有事，但希望你主动追问", "困了想结束聊天", "在测试你会不会装睡"],
       "answerIndex": 1,
-      "explanation": "常见的间接表达：有事但不想显得自己「太计较」，期待对方主动关心。当然，这只是一类常见现象，不代表所有人。",
+      "explanation": "常见的间接表达：有事但不想显得「太计较」，期待对方主动关心。当然，这只是一类常见现象，不代表所有人。",
       "funFact": "心理学称之为「间接表达」(indirect communication)，在注重关系和谐的语境中更常见。"
     },
     {
       "id": "f-002",
       "targetPerspective": "for-female",
+      "category": "date",
       "scenario": "点奶茶时女生说「随便，都行」，她的潜台词多半是……",
       "options": ["真的喝什么都行", "你来点，但最好点中她的心意", "突然不想喝了", "她正在生闷气"],
       "answerIndex": 1,
@@ -22,6 +38,7 @@
     {
       "id": "f-003",
       "targetPerspective": "for-female",
+      "category": "chat",
       "scenario": "女生发来一张自拍问「我是不是胖了」，她最想听到的回答是……",
       "options": ["客观分析体重变化", "认真推荐减脂计划", "「哪有！明明超好看」", "沉默是金"],
       "answerIndex": 2,
@@ -30,6 +47,7 @@
     {
       "id": "f-004",
       "targetPerspective": "for-female",
+      "category": "date",
       "scenario": "约会前女生把衣柜里的衣服试了个遍，最可能的原因是……",
       "options": ["选择困难症发作", "重视这次见面，想呈现最好的状态", "衣服都没洗", "单纯拖延时间"],
       "answerIndex": 1,
@@ -38,6 +56,7 @@
     {
       "id": "f-005",
       "targetPerspective": "for-female",
+      "category": "money",
       "scenario": "女生逛街三小时最后只买了一杯奶茶，对她来说这趟逛街……",
       "options": ["彻底失败了", "「逛」的过程本身就是放松和乐趣", "是省钱挑战", "说明她迷路了"],
       "answerIndex": 1,
@@ -46,6 +65,7 @@
     {
       "id": "f-006",
       "targetPerspective": "for-female",
+      "category": "emotion",
       "scenario": "女生问「游戏重要还是我重要」，她真正想确认的是……",
       "options": ["游戏段位有多高", "她在你心里的优先级", "今晚几点睡", "队友是不是坑"],
       "answerIndex": 1,
@@ -54,6 +74,7 @@
     {
       "id": "f-007",
       "targetPerspective": "for-female",
+      "category": "social",
       "scenario": "女生把暧昧对象的聊天记录转发到闺蜜群，最可能是在……",
       "options": ["炫耀", "请闺蜜们做「阅读理解」参谋", "手机出 bug 了", "测试闺蜜忠诚度"],
       "answerIndex": 1,
@@ -63,6 +84,7 @@
     {
       "id": "f-008",
       "targetPerspective": "for-female",
+      "category": "emotion",
       "scenario": "生理期前后女生情绪波动变大，更靠谱的理解是……",
       "options": ["她在装可怜", "激素波动是真实的生理影响", "就是矫情", "想偷懒不干活"],
       "answerIndex": 1,
@@ -72,6 +94,7 @@
     {
       "id": "f-009",
       "targetPerspective": "for-female",
+      "category": "emotion",
       "scenario": "女生说「你根本不懂我」，这句话的潜台词多为……",
       "options": ["分手预告", "感觉自己没有被认真倾听", "让你猜谜语", "夸你有神秘感"],
       "answerIndex": 1,
@@ -80,6 +103,7 @@
     {
       "id": "f-010",
       "targetPerspective": "for-female",
+      "category": "money",
       "scenario": "女生买了一堆「没什么用但好看」的小玩意，这通常属于……",
       "options": ["冲动消费失败", "悦己消费，买的是情绪价值", "囤货癖晚期", "数学不太好"],
       "answerIndex": 1,
@@ -88,6 +112,7 @@
     {
       "id": "f-011",
       "targetPerspective": "for-female",
+      "category": "date",
       "scenario": "「不见重要的人不值得洗头」——女生赴约前洗头的成本说明……",
       "options": ["她有洁癖", "越重视的人越愿意为之付出形象成本", "洗发水促销", "强迫症"],
       "answerIndex": 1,
@@ -96,14 +121,232 @@
     {
       "id": "f-012",
       "targetPerspective": "for-female",
+      "category": "social",
       "scenario": "拍完合照女生一张张放大细看，她主要在检查……",
       "options": ["照片分辨率", "自己在照片里的呈现状态", "相机参数设置", "背景有没有路人抢镜"],
       "answerIndex": 1,
       "explanation": "放大检查的多是自己的表情角度，毕竟发出去的照片代表自己的形象管理。当然，这只是一类常见现象，不代表所有人。"
     },
     {
+      "id": "f-013",
+      "targetPerspective": "for-female",
+      "category": "chat",
+      "scenario": "女生突然开始用「哦」「嗯」单字回复，通常说明……",
+      "options": ["她在忙", "情绪不对，多半有点不满", "流量不够了", "懒得打字"],
+      "answerIndex": 1,
+      "explanation": "语气词骤变是明显的情绪信号——从「嗯嗯好的呀」到「哦」，落差本身就是答案。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-014",
+      "targetPerspective": "for-female",
+      "category": "chat",
+      "scenario": "女生每条消息都隔几分钟回，但每条都回得很认真，说明……",
+      "options": ["她在敷衍", "她在斟酌措辞，同时也在做别的事", "她是群发", "她手机卡"],
+      "answerIndex": 1,
+      "explanation": "认真但不秒回，往往是在好好组织语言——对话题的重视藏在斟酌里。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-015",
+      "targetPerspective": "for-female",
+      "category": "date",
+      "scenario": "第一次单独约会，女生带上了闺蜜一起，最可能是……",
+      "options": ["来蹭饭的", "要安全感，也想让闺蜜帮忙把关", "对你没意思", "闺蜜正好顺路"],
+      "answerIndex": 1,
+      "explanation": "初次见面带同伴是常见的安全策略＋征求意见渠道，别急着扣分。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-016",
+      "targetPerspective": "for-female",
+      "category": "emotion",
+      "scenario": "吵架后女生发来一句「晚安」就不再回复，通常意味着……",
+      "options": ["没事了", "气还没消，但给彼此留了台阶", "真的去睡了", "准备分手"],
+      "answerIndex": 1,
+      "explanation": "主动说晚安是「我还不高兴，但我不想断了联系」的信号——接住台阶比继续争对错重要。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-017",
+      "targetPerspective": "for-female",
+      "category": "life",
+      "scenario": "女生的洗手台摆满瓶瓶罐罐，这通常说明……",
+      "options": ["收拾不利索", "护肤是一套系统性的日常工程", "在炫富", "强迫症"],
+      "answerIndex": 1,
+      "explanation": "清洁-保湿-防晒-精华各有分工，是很多人坚持多年的日常仪式。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-018",
+      "targetPerspective": "for-female",
+      "category": "life",
+      "scenario": "女生手机里装着十几个拍照修图 App，说明……",
+      "options": ["手机内存大", "「出片」是刚需，修图是技能储备", "虚荣", "都是手机自带的"],
+      "answerIndex": 1,
+      "explanation": "构图、滤镜、修容各有专门工具——这和男生装一堆效率工具是同款逻辑。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-019",
+      "targetPerspective": "for-female",
+      "category": "life",
+      "scenario": "衣柜明明是满的，女生还是说「我没有衣服穿」，她的逻辑是……",
+      "options": ["在撒谎", "没有「适合这个场合、且没穿腻」的那一件", "数学不好", "想让你买单"],
+      "answerIndex": 1,
+      "explanation": "「没衣服穿」= 没有匹配当下场合和心情的选项，是搭配题不是数量题。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-020",
+      "targetPerspective": "for-female",
+      "category": "life",
+      "scenario": "聚餐时女生上厕所都要结伴去，这是因为……",
+      "options": ["怕黑", "洗手间是重要的社交场：安全、补妆、八卦", "不认识路", "餐厅规定"],
+      "answerIndex": 1,
+      "explanation": "结伴去洗手间是延续多年的社交习惯——聊两句悄悄话、互相看妆容，一举多得。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-021",
+      "targetPerspective": "for-female",
+      "category": "money",
+      "scenario": "女生为一支口红比价做功课好几天，这说明……",
+      "options": ["抠门", "购买决策的谨慎＋期待感也是乐趣", "太闲了", "选择困难"],
+      "answerIndex": 1,
+      "explanation": "做功课本身延长并放大了期待的快乐——「买到对的」比「买贵的」更爽。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-022",
+      "targetPerspective": "for-female",
+      "category": "money",
+      "scenario": "女生购物车放了几十件商品却迟迟不结算，多半是……",
+      "options": ["没钱了", "收藏夹式「云拥有」＋等大促好价", "忘了", "都缺货"],
+      "answerIndex": 1,
+      "explanation": "购物车对很多人是愿望清单而非待办清单，放着看看也开心，降价了再出手。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-023",
+      "targetPerspective": "for-female",
+      "category": "social",
+      "scenario": "聚会时女生总会主动照顾到坐在角落最沉默的那个人，说明……",
+      "options": ["她太圣母", "对场域情绪的敏锐观察和照料习惯", "她很闲", "她在表演"],
+      "answerIndex": 1,
+      "explanation": "关照边缘人是很多人习得的社交直觉——谁也不被冷落，场子才舒服。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-024",
+      "targetPerspective": "for-female",
+      "category": "social",
+      "scenario": "女生和闺蜜聊一下午「废话」还意犹未尽，因为……",
+      "options": ["真的太闲", "倾诉和回应本身就是情感连接的方式", "没有正事可做", "在拖延回家"],
+      "answerIndex": 1,
+      "explanation": "很多女性友谊靠高频低密度的「碎聊」维系，说的内容不重要，「在聊」才重要。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-025",
+      "targetPerspective": "for-female",
+      "category": "private",
+      "scenario": "暧昧期女生回复变慢了，但朋友圈更新得很勤，她多半是……",
+      "options": ["对你没兴趣了", "刻意保持矜持，不想显得太上头", "有别的人", "手机坏了"],
+      "answerIndex": 1,
+      "explanation": "「在线但慢回」常是暧昧期的节奏管理——怕显得自己太主动。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-026",
+      "targetPerspective": "for-female",
+      "category": "private",
+      "scenario": "深夜女生发来一句「睡不着」，潜台词多半是……",
+      "options": ["真的失眠", "想和你聊聊，给你一个开场机会", "群发的", "无病呻吟"],
+      "answerIndex": 1,
+      "explanation": "深夜主动递话头是信任信号——她选择了你而不是褪黑素。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-027",
+      "targetPerspective": "for-female",
+      "category": "private",
+      "scenario": "女生问「你谈过几次恋爱」，她真正的意图多是……",
+      "options": ["纯八卦", "评估你的感情经历与对待关系的认真度", "随口一问", "想听你讲前任"],
+      "answerIndex": 1,
+      "explanation": "这是在收集「他靠不靠谱」的证据，回答态度比数字本身更重要。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-028",
+      "targetPerspective": "for-female",
+      "category": "private",
+      "scenario": "你递水时碰到她手、走路时她帮你整理衣领，她都没有躲开，通常意味着……",
+      "options": ["她大大咧咧", "对你有好感时的默许信号", "她没注意", "只是礼貌"],
+      "answerIndex": 1,
+      "explanation": "对无感的人，大多数人会下意识拉开距离；不回避的轻触碰常是好感许可。当然，这只是一类常见现象，不代表所有人，判断请综合看。"
+    },
+    {
+      "id": "f-029",
+      "targetPerspective": "for-female",
+      "category": "screen",
+      "scenario": "像《想见你》里黄雨萱反复问「你有没有想我」，这类反复确认型提问的心理是……",
+      "options": ["太作了", "需要被爱的确认，安全感在充电", "闲得慌", "忠诚度测试"],
+      "answerIndex": 1,
+      "explanation": "反复确认不是不信任你，是在给自己充电——接住就好，不用讲道理。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-030",
+      "targetPerspective": "for-female",
+      "category": "screen",
+      "scenario": "《前任3》里吃芒果告别的名场面——女生分手后的「仪式感告别」说明……",
+      "options": ["戏太多", "用仪式为感情画上句号，是自我疗愈", "想复合", "作秀给人看"],
+      "answerIndex": 1,
+      "explanation": "仪式感告别是把情绪外化、正式翻篇的方式，认真告别的人往往走得更彻底。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-031",
+      "targetPerspective": "for-female",
+      "category": "screen",
+      "scenario": "《三十而已》顾佳式的全能主妇被热议——女生在婚姻分工里最看重的是……",
+      "options": ["不用工作享清福", "付出被看见、价值被尊重", "有人养", "掌控全局"],
+      "answerIndex": 1,
+      "explanation": "争议的核心不是分工本身，而是「家务与育儿的劳动值不值得被承认」。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-032",
+      "targetPerspective": "for-female",
+      "category": "screen",
+      "scenario": "女生说「你又不是韩剧男主」，这句话多半是……",
+      "options": ["在夸你帅", "觉得你不够接地气，或期待落差的调侃", "让你去学韩剧", "在讽刺你"],
+      "answerIndex": 1,
+      "explanation": "半开玩笑半真心：她期待的是真实的你，但也想要一点被用心对待的浪漫。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-033",
+      "targetPerspective": "for-female",
+      "category": "future",
+      "scenario": "女生择偶时说看重「上进心」多于当下收入，这多半是……",
+      "options": ["虚伪说辞", "看重未来生活质量的确定性与掌控感", "要求已经很低", "鸡汤喝多了"],
+      "answerIndex": 1,
+      "explanation": "「上进心」指向的是对未来的可预期性——能不能一起把日子越过越好。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-034",
+      "targetPerspective": "for-female",
+      "category": "future",
+      "scenario": "恋爱不久女生就问「你以后想在哪个城市定居」，说明……",
+      "options": ["在查户口", "她在评估这段关系的长期可行性", "随口聊聊", "她想搬家"],
+      "answerIndex": 1,
+      "explanation": "提前对齐定居城市是在做「我们有没有未来」的兼容性测试，是很实际的认真。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-035",
+      "targetPerspective": "for-female",
+      "category": "future",
+      "scenario": "聊到孩子教育，女生会认真讨论学校甚至学区，这说明……",
+      "options": ["太现实了", "对未来的未雨绸缪和责任感", "焦虑过头", "爱攀比"],
+      "answerIndex": 1,
+      "explanation": "提前讨论教育资源是责任感而非焦虑——她已经在认真构想共同生活。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-036",
+      "targetPerspective": "for-female",
+      "category": "future",
+      "scenario": "女生说婚后也想保持自己的工作和收入，多半是因为……",
+      "options": ["不信任伴侣", "经济独立带来的安全感与自我价值", "不爱家", "想随时撤退"],
+      "answerIndex": 1,
+      "explanation": "保留自己的事业是很多人对「万一」的底线准备，也是对自我价值的坚持，与爱不冲突。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
       "id": "m-001",
       "targetPerspective": "for-male",
+      "category": "chat",
       "scenario": "男生说「我没事」，大多数时候的真实含义是……",
       "options": ["反话，其实很有事", "真的没事，或想自己安静消化一下", "在生你的气", "想分手了"],
       "answerIndex": 1,
@@ -113,6 +356,7 @@
     {
       "id": "m-002",
       "targetPerspective": "for-male",
+      "category": "life",
       "scenario": "男生下班后一言不发打了两小时游戏，最可能是在……",
       "options": ["感情淡了", "用游戏解压回血，像充电一样", "进行电竞集训", "故意冷落你"],
       "answerIndex": 1,
@@ -122,6 +366,7 @@
     {
       "id": "m-003",
       "targetPerspective": "for-male",
+      "category": "date",
       "scenario": "点餐时男生说「随便」，通常意味着……",
       "options": ["让你猜他的口味", "真的随便，吃饱就行", "他生气了", "他在减肥不能说"],
       "answerIndex": 1,
@@ -131,6 +376,7 @@
     {
       "id": "m-004",
       "targetPerspective": "for-male",
+      "category": "chat",
       "scenario": "男生明明在线却半天不回消息，最常见的原因是……",
       "options": ["故意冷暴力", "在想怎么回，或打算晚点认真回", "已经没感情了", "手机掉马桶了"],
       "answerIndex": 1,
@@ -139,6 +385,7 @@
     {
       "id": "m-005",
       "targetPerspective": "for-male",
+      "category": "money",
       "scenario": "男生的衣柜只有三套衣服轮换，这通常说明……",
       "options": [
         "经济困难",
@@ -152,6 +399,7 @@
     {
       "id": "m-006",
       "targetPerspective": "for-male",
+      "category": "emotion",
       "scenario": "男生看球赛时对着电视大喊大叫捶沙发，这是……",
       "options": [
         "情绪失控的前兆",
@@ -165,6 +413,7 @@
     {
       "id": "m-007",
       "targetPerspective": "for-male",
+      "category": "emotion",
       "scenario": "男生明明喜欢一个人却迟迟不表白，最常见的顾虑是……",
       "options": ["其实没那么喜欢", "怕被拒绝后连朋友都做不成", "在广撒网养鱼", "单纯忘了"],
       "answerIndex": 1,
@@ -173,6 +422,7 @@
     {
       "id": "m-008",
       "targetPerspective": "for-male",
+      "category": "emotion",
       "scenario": "男生被问「在想什么」时答「没想啥」，大概率是……",
       "options": ["有事瞒着你", "真的在放空，大脑待机中", "在想别人", "习惯性撒谎"],
       "answerIndex": 1,
@@ -182,6 +432,7 @@
     {
       "id": "m-009",
       "targetPerspective": "for-male",
+      "category": "emotion",
       "scenario": "分手后男生表现得云淡风轻像没事人，更可能是……",
       "options": [
         "根本没爱过",
@@ -195,6 +446,7 @@
     {
       "id": "m-010",
       "targetPerspective": "for-male",
+      "category": "date",
       "scenario": "男生总是记不住纪念日和生日，这通常说明……",
       "options": [
         "他不在乎这段关系",
@@ -208,6 +460,7 @@
     {
       "id": "m-011",
       "targetPerspective": "for-male",
+      "category": "chat",
       "scenario": "你倾诉烦恼时，男生没听完就急着给解决方案，因为……",
       "options": [
         "他不耐烦了",
@@ -222,10 +475,472 @@
     {
       "id": "m-012",
       "targetPerspective": "for-male",
+      "category": "money",
       "scenario": "男生买一个键盘前看三天评测对比参数，本质是……",
       "options": ["选择困难症", "研究对比的过程本身就是乐趣的一部分", "拖延症", "强迫症发作"],
       "answerIndex": 1,
       "explanation": "对装备党来说，参数研究的快乐不亚于使用本身——买只是研究成果的验收。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-013",
+      "targetPerspective": "for-male",
+      "category": "chat",
+      "scenario": "男生冷不丁发来一句「在干嘛」，多半意味着……",
+      "options": ["在查岗", "想你了，又不好意思直说", "没话找话凑数", "群发的"],
+      "answerIndex": 1,
+      "explanation": "「在干嘛」是男性语境里最常用的思念开场白——翻译过来就是「我想你了」。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-014",
+      "targetPerspective": "for-male",
+      "category": "date",
+      "scenario": "约会时男生总是抢着买单，最可能是……",
+      "options": ["大男子主义", "想表达在意、展现可靠的姿态", "显摆有钱", "钱多烧的"],
+      "answerIndex": 1,
+      "explanation": "抢着买单是很多人从小被教育的「表达诚意」方式，不必过度解读为控制欲。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-015",
+      "targetPerspective": "for-male",
+      "category": "date",
+      "scenario": "男生约会总带你去打球、看比赛、逛数码店，说明……",
+      "options": ["不懂浪漫", "他想把你带进自己的世界，分享热爱", "为了省钱", "在敷衍"],
+      "answerIndex": 1,
+      "explanation": "带你进入他的热爱主场，是「想让你认识完整的我」的笨拙浪漫。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-016",
+      "targetPerspective": "for-male",
+      "category": "life",
+      "scenario": "男生一双鞋穿到开胶才肯换，这说明……",
+      "options": ["太穷了", "功能主义：「还能穿」就不需要换", "邋遢成性", "懒得买"],
+      "answerIndex": 1,
+      "explanation": "功能完好的旧物对很多人来说没有更换理由——物品的价值在于能用而非新。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-017",
+      "targetPerspective": "for-male",
+      "category": "life",
+      "scenario": "男生桌面看着很乱但你扔一样东西他立刻知道，说明……",
+      "options": ["在装", "乱而有序——他的秩序在自己的脑子里", "运气好", "早就想换新的"],
+      "answerIndex": 1,
+      "explanation": "「乱而有序」是真实存在的空间管理流派，收拾整齐反而找不到东西。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-018",
+      "targetPerspective": "for-male",
+      "category": "life",
+      "scenario": "男生感冒发烧还说「小毛病，扛扛就过去了」，多是……",
+      "options": ["在逞强", "习惯弱化身体不适，从小被教育「扛一扛」", "真的没事", "怕吃药"],
+      "answerIndex": 1,
+      "explanation": "很多男性从小被训练「轻伤不下火线」，承认不舒服比生病本身还难。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-019",
+      "targetPerspective": "for-male",
+      "category": "money",
+      "scenario": "男生买几十块的T恤纠结半天，买几千块的数码产品眼都不眨，因为……",
+      "options": ["精神分裂", "价值判定看品类权重，不看价格绝对值", "冲动消费", "双标"],
+      "answerIndex": 1,
+      "explanation": "在他在意的品类里参数值这个价，不在意的品类里能省则省——标准的「装备党经济学」。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-020",
+      "targetPerspective": "for-male",
+      "category": "money",
+      "scenario": "男生请朋友吃饭特别大方，自己的日用品却省到极致，说明……",
+      "options": ["死要面子", "社交投入与个人消费的权重天然不同", "虚伪", "不会过日子"],
+      "answerIndex": 1,
+      "explanation": "对朋友大方是情感投资，对自己抠是功能主义——两套账本互不干扰。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-021",
+      "targetPerspective": "for-male",
+      "category": "social",
+      "scenario": "男生和发小一年不联系，见面照样能喝到天亮，说明……",
+      "options": ["塑料友情", "男性友谊靠「并肩做事」而非「高频聊天」维系", "没真感情", "装熟"],
+      "answerIndex": 1,
+      "explanation": "很多男性友谊是「低维护高浓度」型——不联系不代表淡了。当然，这只是一类常见现象，不代表所有人。",
+      "funFact": "心理学称之为并肩式友谊 (shoulder-to-shoulder friendship)，与面对面式相对。"
+    },
+    {
+      "id": "m-022",
+      "targetPerspective": "for-male",
+      "category": "social",
+      "scenario": "男生和兄弟聚会全程聊游戏球赛，几乎不聊私事，说明……",
+      "options": ["关系很浅", "共同话题本身就是亲密的载体", "没话可说", "其实不熟"],
+      "answerIndex": 1,
+      "explanation": "聊「安全话题」不等于感情浅——聚在一起做同一件事，本身就完成了陪伴。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-023",
+      "targetPerspective": "for-male",
+      "category": "social",
+      "scenario": "你随口说电脑卡，男生第二天就拎着工具来帮你修，这说明……",
+      "options": [
+        "他是木头",
+        "行动派：动手解决问题就是他说「在乎」的方式",
+        "怕你用不好",
+        "单纯喜欢修电脑"
+      ],
+      "answerIndex": 1,
+      "explanation": "很多男性不擅长说漂亮话，但会把你提过的每件小事记在待办里。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-024",
+      "targetPerspective": "for-male",
+      "category": "social",
+      "scenario": "男生在兄弟群里秒回，私聊里却经常「失踪」，说明……",
+      "options": ["不在乎你", "群聊是低压力弱社交，私聊需要专门状态", "没礼貌", "故意的"],
+      "answerIndex": 1,
+      "explanation": "群里插科打诨不费能量，一对一聊天反而要切换状态——不是冷淡，是耗能模式不同。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-025",
+      "targetPerspective": "for-male",
+      "category": "private",
+      "scenario": "暧昧期男生忽冷忽热、忽近忽远，最常见的原因是……",
+      "options": ["渣男套路", "不确定你的心意，试探和自我保护在交替", "真的忙", "同时在撩很多人"],
+      "answerIndex": 1,
+      "explanation": "进一步怕唐突、退一步怕失去——忽冷忽热常是不确定感的外显。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-026",
+      "targetPerspective": "for-male",
+      "category": "private",
+      "scenario": "男生每天睡前固定发一句「晚安」，这说明……",
+      "options": ["他无聊", "在意你，用最低调的方式维持存在感", "群发的", "纯粹是习惯"],
+      "answerIndex": 1,
+      "explanation": "固定仪式的晚安是把「想你」包装成不打扰的方式——坚持本身就是答案。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-027",
+      "targetPerspective": "for-male",
+      "category": "private",
+      "scenario": "男生手机里存着你的「丑照」不肯删，因为……",
+      "options": ["留你的黑料", "他觉得那种真实的样子很可爱", "忘了删", "报复你"],
+      "answerIndex": 1,
+      "explanation": "在喜欢的人眼里，搞怪抓拍的「丑」是独一份的可爱——审美滤镜是真爱配置。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-028",
+      "targetPerspective": "for-male",
+      "category": "private",
+      "scenario": "男生主动带你去见他的发小和兄弟，通常意味着……",
+      "options": ["随便聚聚", "他在认真考虑你，让圈子认识你", "为了炫耀", "凑人数"],
+      "answerIndex": 1,
+      "explanation": "引入核心社交圈是重要的关系升级信号——兄弟团盖章比说情话分量重。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-029",
+      "targetPerspective": "for-male",
+      "category": "screen",
+      "scenario": "《请回答1988》狗焕式的沉默错过——男生「明明喜欢却假装不在意」多是……",
+      "options": ["不够爱", "怕失去现有关系，懦弱式喜欢", "维持高冷人设", "直男癌"],
+      "answerIndex": 1,
+      "explanation": "狗焕的名场面之所以戳人，是因为太多人演过同一出戏——喜欢到不敢赌。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-030",
+      "targetPerspective": "for-male",
+      "category": "screen",
+      "scenario": "《夏洛特烦恼》式的男生总怀念「得不到的白月光」，说明……",
+      "options": ["他就是渣", "对未得到事物的美化滤镜，未必是真的爱", "现任不够好", "怀旧癖"],
+      "answerIndex": 1,
+      "explanation": "白月光是想象力的作品——得不到的永远在滤镜里发光，拥有后才知柴米油盐。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-031",
+      "targetPerspective": "for-male",
+      "category": "screen",
+      "scenario": "《欢乐颂》包奕凡式「我就喜欢你管我」——男生被管着还开心，说明……",
+      "options": ["没骨气", "「被管」接收到的是「被在乎」的满足感", "妈宝", "装的"],
+      "answerIndex": 1,
+      "explanation": "管=在乎的翻译公式在很多男性语境里成立——有人惦记是幸福感不是束缚。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-032",
+      "targetPerspective": "for-male",
+      "category": "screen",
+      "scenario": "《我的前半生》式的男生离婚后「老死不相往来」，多是……",
+      "options": ["恨透了前任", "物理隔离是很多人放下一段感情最快的方式", "有了新欢", "幼稚赌气"],
+      "answerIndex": 1,
+      "explanation": "对不少男性来说，断联不是恨而是自保——藕断丝连才是真的放不下。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-033",
+      "targetPerspective": "for-male",
+      "category": "future",
+      "scenario": "男生总说「先立业再成家」迟迟不推进关系，多为……",
+      "options": ["借口", "对能否承担家庭责任的能力焦虑", "根本不想结婚", "妈宝"],
+      "answerIndex": 1,
+      "explanation": "「立业」焦虑背后是「怕给不了你好生活」的责任感错位——不是不想，是怕不够格。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-034",
+      "targetPerspective": "for-male",
+      "category": "future",
+      "scenario": "谈婚论嫁时男生对彩礼和婚礼开销明显焦虑敏感，因为……",
+      "options": ["抠门", "经济压力与面子问题双重夹击", "不够爱", "在算计"],
+      "answerIndex": 1,
+      "explanation": "彩礼焦虑是现实的真金白银压力＋「不能丢了面子」的社会期待叠加，敏感不等于不爱。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-035",
+      "targetPerspective": "for-male",
+      "category": "future",
+      "scenario": "男生拿到异地工作机会后反复纠结很久，说明……",
+      "options": ["优柔寡断", "在认真权衡感情与事业的现实成本", "不上进", "没主见"],
+      "answerIndex": 1,
+      "explanation": "纠结恰恰说明把你算进了人生方程——无脑冲的人才是没把你放进变量。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-036",
+      "targetPerspective": "for-male",
+      "category": "future",
+      "scenario": "男生周末只想宅在家不出门，多半是……",
+      "options": ["懒癌晚期", "工作消耗后的低能耗恢复模式", "没钱出去", "社交恐惧"],
+      "answerIndex": 1,
+      "explanation": "宅是他的充电协议——一周社交额度用完，沙发和外卖就是回血包。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-037",
+      "targetPerspective": "for-female",
+      "category": "score",
+      "scenario": "生日收到很贵的礼物，但平时想聊天时他总在打游戏，她失落的原因是……",
+      "options": [
+        "不知足",
+        "日常陪伴的「小分」比一件大礼物更影响她的感受",
+        "想要更贵的",
+        "故意找茬"
+      ],
+      "answerIndex": 1,
+      "explanation": "金星计分簿里，每次认真聊天、记得小事都各记一分——一件大礼替代不了一百次日常得分。当然，这只是一类常见现象，不代表所有人。",
+      "funFact": "《男人来自火星女人来自金星》核心观点：男人以为做一次大事能拿高分，女人是每做一件事就记一分。"
+    },
+    {
+      "id": "f-038",
+      "targetPerspective": "for-female",
+      "category": "score",
+      "scenario": "男生觉得「我努力赚钱就是爱你」，女生却抱怨他不陪伴，分歧在……",
+      "options": ["她嫌钱少", "两人用的不是同一本计分簿", "她不爱他", "她在测试"],
+      "answerIndex": 1,
+      "explanation": "他计的是「扛事得分」，她计的是「在场得分」——分歧不在爱不爱，在计分规则没对齐。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-039",
+      "targetPerspective": "for-female",
+      "category": "score",
+      "scenario": "女生记住你随口说过想吃的东西然后买来，这在她的逻辑里是……",
+      "options": ["顺手而已", "「记住细节=在乎你」的直接得分动作", "显示记性好", "没什么含义"],
+      "answerIndex": 1,
+      "explanation": "记住你的随口一提并兑现，是她的计分体系里分值很高的题。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-040",
+      "targetPerspective": "for-female",
+      "category": "score",
+      "scenario": "吵架时女生说「你从来都不……」，这句话的真实含义多为……",
+      "options": ["陈述事实", "夸张表达「最近得分太低」的累积失望", "人身攻击", "记性太好"],
+      "answerIndex": 1,
+      "explanation": "「从来都不」是情绪统计不是数据分析——要回应的是感受，不是逐条反驳频率。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-041",
+      "targetPerspective": "for-female",
+      "category": "needs",
+      "scenario": "女生倾诉工作委屈时，她此刻最需要的是……",
+      "options": ["解决方案清单", "先被理解和站队，再谈怎么办", "客观分析谁对谁错", "让她冷静一下"],
+      "answerIndex": 1,
+      "explanation": "金星人的倾诉是要情绪被接住，不是要项目管理——先同仇敌忾，再给方案。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-042",
+      "targetPerspective": "for-female",
+      "category": "needs",
+      "scenario": "女生反复问「你是不是真的喜欢我」，多半是……",
+      "options": ["闲的", "安全感需要定期充值确认", "想听情话", "测试忠诚度"],
+      "answerIndex": 1,
+      "explanation": "被珍视感是消耗品——确认不是不信任，是需求本身。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-043",
+      "targetPerspective": "for-female",
+      "category": "needs",
+      "scenario": "男生忘了她说过「不吃香菜」，她为什么真的会不开心……",
+      "options": ["小题大做", "「我的细节被记住」是她被珍视感的重要来源", "控制欲", "挑食"],
+      "answerIndex": 1,
+      "explanation": "细节被记住=被放在心上的证据。忘一次不是罪，次次忘就是态度分。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-044",
+      "targetPerspective": "for-female",
+      "category": "needs",
+      "scenario": "女生想辞职休息一阵，最不想听到的回应是……",
+      "options": [
+        "「想清楚就好，我支持你」",
+        "「我早就说那份工作不行」",
+        "「休息多久都行」",
+        "「要不要出去走走」"
+      ],
+      "answerIndex": 1,
+      "explanation": "「我早就说」表面关心实为否定她当初的选择——此刻需要的是被信任，不是被证明你对。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-045",
+      "targetPerspective": "for-female",
+      "category": "fight",
+      "scenario": "吵架时男生突然沉默不说话，更可能的原因是……",
+      "options": ["冷暴力惩罚", "怕说错话让局势更糟，先撤退降温", "不在乎了", "词穷"],
+      "answerIndex": 1,
+      "explanation": "火星人躲进洞穴是默认的冲突降温方式——他要的是别再恶化，不是无视你。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-046",
+      "targetPerspective": "for-female",
+      "category": "fight",
+      "scenario": "吵架时女生翻旧账，通常意味着……",
+      "options": ["记仇", "那些旧账当年就没被安抚过，是存量情绪", "想赢", "逻辑混乱"],
+      "answerIndex": 1,
+      "explanation": "翻出来的旧账都是当年没闭环的委屈——不是找茬，是讨债。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-047",
+      "targetPerspective": "for-female",
+      "category": "fight",
+      "scenario": "女生说「我不是气这件事，是气你的态度」，重点在……",
+      "options": ["无理取闹", "她在乎的是情绪被如何对待，而非事情对错", "转移话题", "话术"],
+      "answerIndex": 1,
+      "explanation": "态度分独立于事实分——道理都对了但语气凉了，她还是输。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "f-048",
+      "targetPerspective": "for-female",
+      "category": "fight",
+      "scenario": "吵完架她想要个拥抱和好，你想先把道理捋顺，这说明……",
+      "options": [
+        "她不讲理",
+        "她要情绪闭环，你要逻辑闭环——先给拥抱再讲道理",
+        "顺序无所谓",
+        "她输不起"
+      ],
+      "answerIndex": 1,
+      "explanation": "两种闭环没有高下，但顺序有讲究：情绪不闭环，道理听不进。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-037",
+      "targetPerspective": "for-male",
+      "category": "score",
+      "scenario": "男生觉得纪念日送个大礼就能把一年的爱都表达了，他的计分逻辑是……",
+      "options": ["敷衍", "一次大投入=高分，火星计分制是项目制", "不上心", "偷懒"],
+      "answerIndex": 1,
+      "explanation": "火星人的计分簿按项目结算：干一件大事得一次大分。问题是金星人按次数记账。当然，这只是一类常见现象，不代表所有人。",
+      "funFact": "火星金星理论里最大的误解来源：男人以为送一辆车=1000分，女人记成「送礼物 1 分」。"
+    },
+    {
+      "id": "m-038",
+      "targetPerspective": "for-male",
+      "category": "score",
+      "scenario": "男生修好东西/装完家具后总想听你夸一句，因为……",
+      "options": ["幼稚", "「做成事被看见」是他计分体系里的高光时刻", "虚荣", "邀功"],
+      "answerIndex": 1,
+      "explanation": "动手解决问题是火星人表达爱的母语——夸他做的是事，夸到他心里的是「被看见」。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-039",
+      "targetPerspective": "for-male",
+      "category": "score",
+      "scenario": "男生记不住纪念日但凌晨接机从不缺席，说明他的计分逻辑是……",
+      "options": ["记性差", "关键时刻在不在场 > 仪式日期对不对", "故意的", "双标"],
+      "answerIndex": 1,
+      "explanation": "他计的是「大事我在」的分，你计的是「日常细节」的分——两套题别混着批卷。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-040",
+      "targetPerspective": "for-male",
+      "category": "score",
+      "scenario": "男生干完家务汇报「我今天干了三件大事」，他其实是……",
+      "options": ["显摆", "在提交得分确认：我做了，你看到了吗", "求表扬上瘾", "邀功请赏"],
+      "answerIndex": 1,
+      "explanation": "火星人表达爱的方式是「做成了什么」——他报备不是邀功，是往共同记分簿上登记。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-041",
+      "targetPerspective": "for-male",
+      "category": "needs",
+      "scenario": "男生修好水龙头后，最想听到的回应是……",
+      "options": ["「应该的」", "「你好厉害」式被欣赏被崇拜", "「终于修好了」", "沉默"],
+      "answerIndex": 1,
+      "explanation": "火星人的核心需求是被欣赏被崇拜——一句崇拜比一顿大餐更补。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-042",
+      "targetPerspective": "for-male",
+      "category": "needs",
+      "scenario": "男生做决策时被女友全程指导纠正，他感到受挫是因为……",
+      "options": ["玻璃心", "「被信任」的需求被扣分了", "不想负责", "大男子主义"],
+      "answerIndex": 1,
+      "explanation": "被信任是火星人的刚需——全程纠正等于在说「我不信你能行」。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-043",
+      "targetPerspective": "for-male",
+      "category": "needs",
+      "scenario": "男生愿意大半夜跑遍全城给你买奶茶，他要的是……",
+      "options": ["奶茶", "「被需要」的确认感", "讨好", "无事献殷勤"],
+      "answerIndex": 1,
+      "explanation": "「被你需要」是火星人价值感的直接来源——答应他的付出并表达感谢，比说客气话有用。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-044",
+      "targetPerspective": "for-male",
+      "category": "needs",
+      "scenario": "在外人面前被女友拆台纠错，男生最受伤的原因是……",
+      "options": ["要面子虚荣", "公开场合的欣赏与体面=他最看重的尊重分", "输不起", "小题大做"],
+      "answerIndex": 1,
+      "explanation": "私下纠错叫沟通，公开拆台叫扣分——火星人的面子本质是「被尊重的需求」。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-045",
+      "targetPerspective": "for-male",
+      "category": "fight",
+      "scenario": "吵架时男生说「先冷静一下再谈」，他其实想……",
+      "options": ["逃避问题", "情绪上头说不出好话，躲进洞穴降温再战", "冷战", "不想理你"],
+      "answerIndex": 1,
+      "explanation": "「先冷静」不是不想解决，是怕在气头上说出收不回的话——给他洞穴时间，出来再谈效率更高。当然，这只是一类常见现象，不代表所有人。",
+      "funFact": "橡皮筋理论：火星人像橡皮筋，拉远了会自己弹回来——前提是别追着他拉扯。"
+    },
+    {
+      "id": "m-046",
+      "targetPerspective": "for-male",
+      "category": "fight",
+      "scenario": "被问「你错哪了」时男生真的在认真复盘哪错了，说明……",
+      "options": ["装傻", "他把这当论述题，而它是道态度题", "迟钝", "敷衍"],
+      "answerIndex": 1,
+      "explanation": "火星人拿到问题就去解题——他要学的第一课是：这道题的标准答案不在对错里。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-047",
+      "targetPerspective": "for-male",
+      "category": "fight",
+      "scenario": "吵完架男生没事人一样问「晚上吃什么」，说明……",
+      "options": ["没把你当回事", "他的理解是「吵完=翻篇」，想重启日常", "没心没肺", "在挑衅"],
+      "answerIndex": 1,
+      "explanation": "火星人的翻篇是即时生效的——他已经在递台阶了，接不接看你能不能跟上翻篇速度。当然，这只是一类常见现象，不代表所有人。"
+    },
+    {
+      "id": "m-048",
+      "targetPerspective": "for-male",
+      "category": "fight",
+      "scenario": "男生说「那我道歉行了吧」反而更气人，因为……",
+      "options": [
+        "道歉有错",
+        "「行了吧」=不情愿的灭火，她要的是真心不是手续",
+        "语气问题不算问题",
+        "他想不通"
+      ],
+      "answerIndex": 1,
+      "explanation": "任务式道歉等于没道歉——火星人以为完成动作就得分，金星人看的是动作里的心意。当然，这只是一类常见现象，不代表所有人。"
     }
   ]
 }

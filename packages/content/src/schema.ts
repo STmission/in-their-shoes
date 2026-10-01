@@ -8,10 +8,37 @@ import { z } from "zod";
 export const targetPerspectiveSchema = z.enum(["for-female", "for-male"]);
 export type TargetPerspective = z.infer<typeof targetPerspectiveSchema>;
 
+/** 场景分类 id（专场玩法按此维度抽题）。 */
+export const categoryIdSchema = z.enum([
+  "chat",
+  "date",
+  "emotion",
+  "money",
+  "life",
+  "social",
+  "private",
+  "screen",
+  "future",
+  "score",
+  "needs",
+  "fight",
+]);
+export type CategoryId = z.infer<typeof categoryIdSchema>;
+
+/** 场景分类元数据：展示于首页专场选择器与对局页徽标。 */
+export const sceneCategorySchema = z.object({
+  id: categoryIdSchema,
+  name: z.string().min(1),
+  emoji: z.string().min(1),
+  description: z.string().min(1),
+});
+export type SceneCategory = z.infer<typeof sceneCategorySchema>;
+
 export const questionSchema = z
   .object({
     id: z.string().min(1),
     targetPerspective: targetPerspectiveSchema,
+    category: categoryIdSchema,
     scenario: z.string().min(4),
     options: z.array(z.string().min(1)).min(2).max(4),
     answerIndex: z.number().int().nonnegative(),
@@ -24,10 +51,24 @@ export const questionSchema = z
 
 export type Question = z.infer<typeof questionSchema>;
 
-export const questionBankSchema = z.object({
-  version: z.string().regex(/^\d+\.\d+\.\d+$/, "version must be semver"),
-  questions: z.array(questionSchema).min(1),
-});
+export const questionBankSchema = z
+  .object({
+    version: z.string().regex(/^\d+\.\d+\.\d+$/, "version must be semver"),
+    categories: z.array(sceneCategorySchema).min(1),
+    questions: z.array(questionSchema).min(1),
+  })
+  .superRefine((bank, ctx) => {
+    const ids = new Set(bank.categories.map((c) => c.id));
+    bank.questions.forEach((q, i) => {
+      if (!ids.has(q.category)) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: `question "${q.id}" has unknown category "${q.category}"`,
+          path: ["questions", i, "category"],
+        });
+      }
+    });
+  });
 
 export type QuestionBank = z.infer<typeof questionBankSchema>;
 

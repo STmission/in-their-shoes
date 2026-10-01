@@ -1,8 +1,10 @@
 import {
   bank as defaultBank,
   drawQuestions,
+  type CategoryId,
   type Question,
   type QuestionBank,
+  type SceneCategory,
   type TargetPerspective,
 } from "@game/content";
 
@@ -60,9 +62,21 @@ export function rankFor(empathyIndex: number, side: Side): string {
   return side === "male" ? tier.titleByMale : tier.titleByFemale;
 }
 
+export interface StartOptions {
+  side: Side;
+  /** 场景专场 id；不传 = 随机全场景 */
+  category?: CategoryId;
+  count?: number;
+  bank?: QuestionBank;
+  /** 排除题 id（"再来一局"不重复用上局题） */
+  excludeIds?: string[];
+  rng?: () => number;
+}
+
 /** 对局会话：状态机 idle → answering → revealed →(next)→ answering|finished */
 export class GameSession {
   readonly side: Side;
+  readonly category: CategoryId | null;
   readonly questions: Question[];
   readonly maxScore: number;
   phase: Phase = "idle";
@@ -73,24 +87,33 @@ export class GameSession {
   /** 本局题 id 列表，供"再来一局"排除复用。 */
   readonly questionIds: string[];
 
-  constructor(side: Side, questions: Question[]) {
+  constructor(side: Side, questions: Question[], category: CategoryId | null = null) {
     this.side = side;
+    this.category = category;
     this.questions = questions;
     this.maxScore = maxScore(questions.length);
     this.questionIds = questions.map((q) => q.id);
   }
 
-  static start(
-    side: Side,
-    count = 8,
-    source: QuestionBank = defaultBank,
-    excludeIds: string[] = [],
-    rng?: () => number,
-  ): GameSession {
-    const questions = drawQuestions(source, targetFor(side), count, excludeIds, rng);
-    const s = new GameSession(side, questions);
+  static start(opts: StartOptions): GameSession {
+    const { side, category, count = 8, bank = defaultBank, excludeIds = [], rng } = opts;
+    const questions = drawQuestions(
+      bank,
+      targetFor(side),
+      count,
+      excludeIds,
+      rng,
+      category ?? undefined,
+    );
+    const s = new GameSession(side, questions, category ?? null);
     s.phase = "answering";
     return s;
+  }
+
+  /** 当前场景元数据（null = 随机全场景）。 */
+  sceneOf(bank: QuestionBank = defaultBank): SceneCategory | null {
+    if (!this.category) return null;
+    return bank.categories.find((c) => c.id === this.category) ?? null;
   }
 
   get current(): Question | undefined {
