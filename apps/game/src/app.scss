@@ -1,47 +1,381 @@
-// 设计 token（与 docs/prototype.md 一致）
-// 设计稿基准 375px，Taro 按 designWidth:375 自动换算
-page {
-  background: #14121f;
-  color: #f2f0fa;
-  font-family: -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+// ============================================================
+// 《TA 的世界》霓虹派对（Neon Party）设计系统
+// 深紫夜底 + 蓝粉紫霓虹渐变 + 发光元素；aurora 光斑用
+// radial-gradient 实现（双端安全，不依赖 filter:blur）
+// ============================================================
+
+// 注意：H5 端 `page` 选择器不匹配任何元素（那是小程序的根节点），
+// 双端背景必须同时落在 page（weapp）与 html/body/#app（H5）上。
+html,
+body {
+  background: #060410;
 }
 
+page,
+#app {
+  background:
+    radial-gradient(circle at 12% -4%, rgba(79, 124, 255, 0.42), transparent 42%),
+    radial-gradient(circle at 98% 28%, rgba(255, 107, 157, 0.32), transparent 44%),
+    radial-gradient(circle at 28% 96%, rgba(124, 92, 255, 0.3), transparent 46%), #0a0812;
+  color: #f5f2fa;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+// ── 霓虹光斑（radial-gradient 双端一致）──
+.aurora {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+.aurora i {
+  position: absolute;
+  border-radius: 50%;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+.aurora i:nth-child(1) {
+  width: 280px;
+  height: 280px;
+  left: -90px;
+  top: -60px;
+  background: radial-gradient(circle, rgba(79, 124, 255, 0.5), transparent 70%);
+  animation-duration: 22s;
+}
+.aurora i:nth-child(2) {
+  width: 260px;
+  height: 260px;
+  right: -80px;
+  top: 30%;
+  background: radial-gradient(circle, rgba(255, 107, 157, 0.45), transparent 70%);
+  animation-duration: 26s;
+  animation-delay: -4s;
+}
+.aurora i:nth-child(3) {
+  width: 220px;
+  height: 220px;
+  left: 15%;
+  bottom: 6%;
+  background: radial-gradient(circle, rgba(124, 92, 255, 0.4), transparent 70%);
+  animation-duration: 20s;
+  animation-delay: -8s;
+}
+.aurora i:nth-child(4) {
+  width: 160px;
+  height: 160px;
+  right: 16%;
+  bottom: 30%;
+  background: radial-gradient(circle, rgba(95, 139, 255, 0.3), transparent 70%);
+  animation-duration: 24s;
+}
+@keyframes drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(28px, -22px) scale(1.08);
+  }
+  66% {
+    transform: translate(-18px, 16px) scale(0.94);
+  }
+  100% {
+    transform: translate(12px, -10px) scale(1.05);
+  }
+}
+
+// Taro H5 页面容器默认白底（注入顺序在 app.css 之后，需 !important），透出 #app 的霓虹底色
+.taro_router > .taro_page {
+  background: transparent !important;
+}
+
+// H5 模拟 tabBar 跟随深色主题（weapp 端由 app.config.ts tabBar 配置控制）
+.weui-tabbar {
+  background: #14111f !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+.weui-tabbar__item {
+  color: #6b6480;
+}
+.weui-tabbar__item.weui-bar__item_on,
+.weui-tabbar__item_on {
+  color: #ff7bb0;
+}
+.weui-tabbar__item .weui-tabbar__label,
+.weui-tabbar__label {
+  color: inherit;
+}
+// 未配置 iconPath 时 H5 渲染的空图标占位
+.weui-tabbar__icon:empty {
+  display: none;
+}
+
+// ── 通用页面骨架 ──
 .page {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
-  padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+  padding-bottom: 28px;
   box-sizing: border-box;
+}
+
+// 夜光玻璃卡
+.stick {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+}
+
+// ── 头部 ──
+.hd {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px 12px;
 }
-
-.btn-primary {
-  height: 52px;
-  line-height: 52px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #7c5cff, #b15cff);
+.brand {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   color: #fff;
-  font-size: 17px;
-  font-weight: 700;
-  text-align: center;
+}
+.brand i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(92deg, #5f8bff, #ff7bb0);
+  box-shadow: 0 0 12px #7c5cff;
+}
+.hd-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #fff;
+}
+
+// ── 按钮 ──
+.btn {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  background: linear-gradient(92deg, #5f8bff, #b15cff 55%, #ff6b9d);
+  color: #fff;
   border: none;
+  box-shadow: 0 8px 30px rgba(177, 92, 255, 0.45);
+  transition: transform 0.15s cubic-bezier(0.34, 1.4, 0.64, 1);
   &::after {
     border: none;
   }
-  &.is-disabled {
-    opacity: 0.35;
+}
+.btn:active {
+  transform: scale(0.97);
+}
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.07);
+  color: #f5f2fa;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+.btn.yellow {
+  background: rgba(255, 255, 255, 0.07);
+  color: #f5f2fa;
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+.btn.is-disabled {
+  opacity: 0.42;
+}
+.btn-sm {
+  width: auto;
+  min-height: 0;
+  padding: 7px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(167, 139, 255, 0.5);
+  color: #cdbcff;
+  &::after {
+    border: none;
+  }
+}
+.btn-sm:active {
+  transform: scale(0.96);
+}
+
+// ── 区块标题 ──
+.sec {
+  padding: 0 20px 12px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.sec h2,
+.sec-title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+}
+.sec .sec-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+// ── 底部弹层 ──
+.sheetbg {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(6, 4, 12, 0.65);
+  display: flex;
+  align-items: flex-end;
+}
+.sheet {
+  width: 100%;
+  background: #171426;
+  border-radius: 28px 28px 0 0;
+  border-top: 1.5px solid rgba(167, 139, 255, 0.35);
+  padding: 14px 20px calc(22px + env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  animation: sheetUp 0.25s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+@keyframes sheetUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0.4;
+  }
+}
+.handle {
+  width: 44px;
+  height: 5px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 0 auto 16px;
+}
+.sheet-title {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  color: #fff;
+}
+.sheet-sub {
+  display: block;
+  margin: 7px 0 16px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+}
+
+// ── 跨页通用元素 ──
+.tilt-l {
+  transform: rotate(-0.7deg);
+}
+.tilt-r {
+  transform: rotate(0.7deg);
+}
+
+.fr-info {
+  flex: 1;
+  min-width: 0;
+}
+.fr-name {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 800;
+  color: #fff;
+}
+.fr-sub {
+  display: block;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 2px;
+}
+.fr-empty-e {
+  display: block;
+  font-size: 26px;
+}
+.fr-empty-t {
+  display: block;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.45);
+  text-align: center;
+  line-height: 1.6;
+}
+
+// ── 通用动效 ──
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
   }
 }
 
-.btn-ghost {
-  height: 52px;
-  line-height: 52px;
-  border-radius: 16px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #f2f0fa;
-  font-size: 16px;
-  text-align: center;
-  &::after {
-    border: none;
+// ── 桌面浏览器：悬浮手机卡 ──
+@media screen and (min-width: 520px) {
+  html,
+  body {
+    height: 100%;
+    background: #060410;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #app {
+    width: 430px;
+    max-width: 430px;
+    height: min(920px, 94vh);
+    min-height: min(680px, 94vh);
+    border-radius: 32px;
+    box-shadow:
+      0 40px 90px -24px rgba(124, 92, 255, 0.35),
+      0 30px 60px -30px rgba(0, 0, 0, 0.8);
+    overflow-y: auto;
+    overflow-x: hidden;
+    transform: translateZ(0);
+    position: relative;
+    scrollbar-width: none;
+  }
+  #app::-webkit-scrollbar {
+    display: none;
+  }
+  .page {
+    min-height: 100%;
   }
 }

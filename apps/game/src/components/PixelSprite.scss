@@ -1,0 +1,63 @@
+.pxs {
+  overflow: hidden;
+  position: relative;
+}
+
+.pxs-strip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  animation-iteration-count: infinite;
+}
+
+// 帧表动画：容器宽 = 1 帧，条带宽 = N 帧。
+// steps(N-1) + translateX(-(N-1)/N) → 每个位置恰好对齐一帧、不出现空白帧。
+// （若 steps(N) + -100%，末尾一步会把整条移出视口造成周期性闪空。）
+@keyframes pxs-idle {
+  to {
+    transform: translateX(-90.9091%);
+  }
+}
+
+@keyframes pxs-run {
+  to {
+    transform: translateX(-91.6667%);
+  }
+}
+
+@keyframes pxs-jump {
+  to {
+    transform: translateX(-83.3333%);
+  }
+}
+
+@keyframes pxs-hit {
+  to {
+    transform: translateX(-85.7143%);
+  }
+}
+
+.pxs-strip.a-idle {
+  animation-name: pxs-idle;
+  animation-timing-function: steps(10);
+}
+
+.pxs-strip.a-run {
+  animation-name: pxs-run;
+  animation-timing-function: steps(11);
+}
+
+.pxs-strip.a-jump {
+  animation-name: pxs-jump;
+  animation-timing-function: steps(5);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.pxs-strip.a-hit {
+  animation-name: pxs-hit;
+  animation-timing-function: steps(6);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}

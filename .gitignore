@@ -32,3 +32,6 @@ coverage/
 # stray tsc emits beside sources
 packages/*/src/*.js
 packages/*/src/*.d.ts
+
+# stray dirs
+target/

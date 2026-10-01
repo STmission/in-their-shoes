@@ -47,7 +47,8 @@ export default defineConfig<"webpack5">(async (merge) => {
       },
     },
     h5: {
-      publicPath: "/",
+      // GitHub Pages 等项目页部署时用 H5_PUBLIC_PATH 注入子路径（如 /in-their-shoes/）
+      publicPath: process.env.H5_PUBLIC_PATH || "/",
       staticDirectory: "static",
       output: {
         filename: "js/[name].[hash:8].js",
@@ -61,6 +62,12 @@ export default defineConfig<"webpack5">(async (merge) => {
       postcss: {
         autoprefixer: {
           enable: true,
+          config: {},
+        },
+        // 关闭 px→rem 自适应缩放：设计稿即真实像素，桌面端由 app.scss 的
+        // 手机卡容器负责尺寸，避免宽屏下整体被放大。
+        pxtransform: {
+          enable: false,
           config: {},
         },
         cssModules: {

@@ -1,0 +1,231 @@
+// ── 角色卡 ──
+.mi-role {
+  margin: 8px 20px 0;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(124, 92, 255, 0.25), rgba(255, 107, 157, 0.18));
+  border: 1.5px solid rgba(167, 139, 255, 0.6);
+  box-shadow: 0 10px 40px -12px rgba(124, 92, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.mi-duo {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.mi-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.mi-name {
+  display: block;
+  font-size: 16.5px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.mi-rank {
+  display: block;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 3px;
+}
+
+// ── 数据 ──
+.mi-stats {
+  display: flex;
+  gap: 10px;
+  margin: 13px 20px 0;
+}
+
+.mi-stat {
+  flex: 1;
+  padding: 13px 6px;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.mi-stat-v {
+  display: block;
+  font-size: 20px;
+  font-weight: 900;
+  background: linear-gradient(92deg, #5f8bff, #c471ff 50%, #ff7bb0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mi-stat-l {
+  display: block;
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 3px;
+}
+
+// ── 换装间 ──
+.skin-shop {
+  margin: 12px 20px 0;
+  padding: 16px;
+}
+
+.skin-duo {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  padding: 6px 0 14px;
+}
+
+.skin-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.skin-x {
+  font-size: 18px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.35);
+  padding-bottom: 26px;
+}
+
+.skin-name {
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.skin-tag {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.skin-lab {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 12px 0 8px;
+}
+
+.skin-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+}
+
+.skin-grid.pets {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.skin-cell {
+  border-radius: 14px;
+  padding: 9px 4px 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.09);
+  transition: all 0.15s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+.skin-cell:active {
+  transform: scale(0.94);
+}
+
+.skin-cell.on {
+  border-color: #4f7cff;
+  background: rgba(79, 124, 255, 0.14);
+  box-shadow: 0 0 18px rgba(79, 124, 255, 0.45);
+}
+
+.skin-cell-spr {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skin-cell-n {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.skin-cell.on .skin-cell-n {
+  color: #9db9ff;
+}
+
+// ── 测试记录 ──
+.mi-list {
+  margin: 12px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.mi-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+}
+
+.mi-item-e {
+  width: 40px;
+  height: 40px;
+  border-radius: 13px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 19px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+}
+
+.mi-score {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.mi-score-v {
+  display: block;
+  font-size: 17px;
+  font-weight: 900;
+  background: linear-gradient(92deg, #5f8bff, #ff7bb0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mi-score-l {
+  display: block;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 1px;
+}
+
+.mi-empty {
+  padding: 26px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.mi-note {
+  margin: 16px 20px 0;
+  font-size: 11px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.35);
+}

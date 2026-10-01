@@ -1,3 +1,5 @@
 export default definePageConfig({
-  navigationBarTitleText: "我的共情指数",
+  navigationBarTitleText: "换位结果",
+  navigationBarBackgroundColor: "#0A0812",
+  navigationBarTextStyle: "white",
 });

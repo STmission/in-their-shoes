@@ -1,152 +1,294 @@
-.quiz {
-  gap: 16px;
-}
-
-.quiz__topbar {
+// ── 顶栏 ──
+.qhd {
+  padding: 10px 20px 0;
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-.quiz__counter {
-  font-size: 14px;
+.qclose {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
   font-weight: 700;
-  color: rgba(242, 240, 250, 0.8);
-  min-width: 36px;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
 }
 
-.quiz__progress {
-  flex: 1;
+.qcount {
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.qcount-total {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.qstreak {
+  min-width: 32px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffb347;
+  text-shadow: 0 0 10px rgba(255, 179, 71, 0.6);
+}
+
+// ── 流光进度条 ──
+.qbar {
+  margin: 10px 20px 0;
   height: 8px;
-  border-radius: 4px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 
-.quiz__progress-fill {
+.qbar-i {
+  display: block;
   height: 100%;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #4f7cff, #ff6b9d);
-  transition: width 0.25s ease;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #5f8bff, #b15cff, #ff6b9d);
+  box-shadow: 0 0 14px rgba(177, 92, 255, 0.7);
+  transition: width 0.3s ease;
+  position: relative;
 }
 
-.quiz__streak {
-  min-width: 40px;
-  font-size: 13px;
-  text-align: right;
+.qbar-i::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 70%
+  );
+  animation: sheen 1.8s linear infinite;
 }
 
-.quiz__streak.is-hot {
-  color: #ffb04f;
-  font-weight: 700;
+@keyframes sheen {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 
-.quiz__card {
-  background: #1e1b2e;
-  border-radius: 16px;
-  padding: 24px 20px;
-  margin-top: 8px;
-}
-
-.quiz__scenario {
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.quiz__options {
+// ── 角色舞台 ──
+.qstage {
+  height: 98px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 8px;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 34px;
 }
 
-.option {
-  display: flex;
+.qpet {
+  padding-bottom: 6px;
+}
+
+// ── 题目区 ──
+.qbody {
+  padding: 0 20px 20px;
+}
+
+.qidx {
+  display: inline-flex;
   align-items: center;
-  gap: 12px;
-  background: #1e1b2e;
-  border: 2px solid transparent;
-  border-radius: 14px;
-  padding: 16px;
-  transition: all 0.15s ease;
-}
-
-.option__label {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.08);
-  text-align: center;
-  font-size: 14px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
-.option__text {
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-.option.is-correct {
-  border-color: #3ecf8e;
-  background: rgba(62, 207, 142, 0.12);
-  .option__label {
-    background: #3ecf8e;
-    color: #0b2e1f;
-  }
-}
-
-.option.is-wrong {
-  border-color: #ff5c5c;
-  background: rgba(255, 92, 92, 0.12);
-  .option__label {
-    background: #ff5c5c;
-  }
-}
-
-.option.is-dimmed {
-  opacity: 0.45;
-}
-
-.quiz__feedback {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  gap: 6px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #cdbcff;
+  background: rgba(124, 92, 255, 0.18);
+  border: 1px solid rgba(167, 139, 255, 0.5);
+  padding: 4px 12px;
+  border-radius: 99px;
   margin-top: 4px;
 }
 
-.quiz__verdict {
-  font-size: 17px;
+.qidx-ic {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.qcard {
+  margin-top: 12px;
+  padding: 22px 18px;
+}
+
+.qtext {
+  font-size: 18px;
   font-weight: 800;
+  line-height: 1.55;
+  letter-spacing: -0.2px;
+  color: #fff;
 }
 
-.quiz__verdict.is-correct {
-  color: #3ecf8e;
-}
-
-.quiz__verdict.is-wrong {
-  color: #ff5c5c;
-}
-
-.quiz__explain {
-  background: rgba(124, 92, 255, 0.12);
-  border: 1px solid rgba(124, 92, 255, 0.35);
-  border-radius: 14px;
-  padding: 14px 16px;
+.opts {
+  margin-top: 13px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 11px;
 }
 
-.quiz__explain-text {
-  font-size: 14px;
-  line-height: 1.6;
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 15px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.09);
+  transition: all 0.15s ease;
 }
 
-.quiz__funfact {
+.opt:active {
+  transform: scale(0.985);
+}
+
+.opt-key {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
   font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.opt-text {
+  flex: 1;
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #eee;
+}
+
+.opt.is-correct {
+  border-color: #3ecf8e;
+  background: rgba(62, 207, 142, 0.13);
+  box-shadow: 0 0 18px rgba(62, 207, 142, 0.3);
+}
+
+.opt.is-correct .opt-key {
+  background: #3ecf8e;
+  color: #062b1b;
+}
+
+.opt.is-wrong {
+  border-color: #ff5f6d;
+  background: rgba(255, 95, 109, 0.12);
+  box-shadow: 0 0 18px rgba(255, 95, 109, 0.28);
+}
+
+.opt.is-wrong .opt-key {
+  background: #ff5f6d;
+  color: #fff;
+}
+
+.opt.is-dimmed {
+  opacity: 0.45;
+}
+
+// ── 解析反馈 ──
+.feedback {
+  margin-top: 14px;
+  animation: fadeUp 0.3s ease;
+}
+
+.verdict {
+  display: block;
+  font-size: 16px;
+  font-weight: 900;
+  padding: 0 2px;
+}
+
+.verdict.is-correct {
+  color: #3ecf8e;
+  text-shadow: 0 0 14px rgba(62, 207, 142, 0.5);
+}
+
+.verdict.is-wrong {
+  color: #ff8f9c;
+  text-shadow: 0 0 14px rgba(255, 95, 109, 0.45);
+}
+
+.explain {
+  margin-top: 9px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(124, 92, 255, 0.12);
+  border: 1.5px solid rgba(167, 139, 255, 0.4);
+}
+
+.explain-text {
+  display: block;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: #ded4ff;
+}
+
+.funfact {
+  display: block;
+  margin-top: 9px;
+  font-size: 12px;
   line-height: 1.6;
-  color: #b8a8ff;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.autonext {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
+}
+
+// ── 计算过场 ──
+.analyze {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ana-card {
+  margin: 0 40px;
+  padding: 32px 34px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(167, 139, 255, 0.4);
+  box-shadow: 0 0 40px -6px rgba(124, 92, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.analyze-t {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+  color: #fff;
+}
+
+.analyze-p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
 }
